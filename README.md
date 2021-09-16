@@ -12,7 +12,7 @@ Sprites include...
 - school of fish
 - coral
 - kelp
-- 
+
 The various sprites are animated along both sine and cosine waves in order to create movement in the scene
 
 ## Author Testimony
