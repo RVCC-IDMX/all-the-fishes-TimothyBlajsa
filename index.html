@@ -67,13 +67,39 @@
     kelp1.scale.set(.5);
     kelp1.tint = 0x212f55;
     app.stage.addChild(kelp1);
+
+    //My coral sprite
+    let coral = PIXI.Sprite.from("img/coral.png");
+    coral.x = 300;
+    coral.scale.set(.5);
+    coral.tint = 0x253152;
+    app.stage.addChild(coral);
+
+    //My school sprite
+    let school = PIXI.Sprite.from("img/school.png");
+    school.tint = 0x090c14;
+    school.y = 55;
+    school.scale.set(.15);
+    app.stage.addChild(school);
     let kelp2 = PIXI.Sprite.from("img/kelp.png");
     kelp2.scale.set(.675);
     kelp2.y = .4;
     app.stage.addChild(kelp2);
 
+    //My second coral sprite
+    let coral2 = PIXI.Sprite.from("img/coral.png");
+    coral2.scale.set(.8);
+    coral2.y = 20;
+    coral2.x = -400;
+    coral2.tint = 0x5676c7;
+    app.stage.addChild(coral2);
 
 
+    let fish3 = PIXI.Sprite.from("img/betta.png");
+    fish3.scale.set(.1);
+    fish3.x = 350;
+    fish3.tint = 0x2e3f6b;
+    app.stage.addChild(fish3);
     //My container
     var my_container = new PIXI.Container();
         my_container.addChild(fish1);
@@ -98,17 +124,22 @@
 
         let wobble1 = Math.sin(time/1000)*20;
         let wobble2 = Math.cos(time/1000)*20;
+        let wobble3 = Math.sin(time/1500)*20;
         let sway = Math.sin(time/1500)*10;
         let sway2 = Math.cos(time/1200)*10;
+        
 
         fish1.y = wobble1;
         fish2.y = wobble2;
+        fish3.y = wobble3;
         kelp1.x = sway;
         kelp2.x = sway2;
+        
 
 
         //Swim and turn animation
         //fish1.scale.x = Math.sin(time/1000);
+        
         
         
 
