@@ -23,7 +23,7 @@
     document.body.appendChild(app.view);
 
     //My First Sprite
-    let fish1 = PIXI.Sprite.from("img/lionfish.jpg");
+    let fish1 = PIXI.Sprite.from("img/bigfish.png");
 
     //Change sprite coordinates
     fish1.x = 350;
@@ -37,13 +37,14 @@
     //Change sprite size
     //fish1.width = 500;
     //fish1.scale.x = 1;
+    fish1.scale.set(.1);
 
 
     //Add it to the stage
     app.stage.addChild(fish1);
 
     //My Second Sprite
-    let fish2 = PIXI.Sprite.from("img/goldfish.jpg");
+    let fish2 = PIXI.Sprite.from("img/smallfish.png");
 
     //Change sprite2 coordinates
     
