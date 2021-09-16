@@ -13,7 +13,12 @@
 <script>
 
     //The App
-    var app = new PIXI.Application();
+    var app = new PIXI.Application({
+        width:640,
+        height:400,
+        backgroundColor: 0x000000
+    });
+
     document.body.appendChild(app.view);
 
 </script>
