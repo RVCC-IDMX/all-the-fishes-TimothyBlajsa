@@ -26,13 +26,13 @@
     let fish1 = PIXI.Sprite.from("img/lionfish.jpg");
 
     //Change sprite coordinates
-    fish1.x = 0;
+    fish1.x = 350;
     fish1.y = 0;
 
     //Change Rotationw pi or degrees
     //fish1.rotation = .5 * Math.PI;
     //Change sprite tint
-    fish1.tint = 0xFF0000;
+    
 
     //Change sprite size
     //fish1.width = 500;
@@ -42,9 +42,31 @@
     //Add it to the stage
     app.stage.addChild(fish1);
 
+    //My Second Sprite
+    let fish2 = PIXI.Sprite.from("img/goldfish.jpg");
+
+    //Change sprite2 coordinates
+    
+
+    //Change Rotationw pi or degrees
+    //fish1.rotation = .5 * Math.PI;
+    //Change sprite tint
+    
+
+    //Change sprite2 size
+    //fish1.width = 500;
+    fish2.scale.set(.05);
+
+
+    //Add it to the stage
+    app.stage.addChild(fish2);
+
     //My container
     var my_container = new PIXI.Container();
     app.stage.addChild(my_container);
+
+
+
 </script>
 
 
