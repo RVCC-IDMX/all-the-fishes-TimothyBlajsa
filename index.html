@@ -32,6 +32,7 @@
     //Change Rotationw pi or degrees
     //fish1.rotation = .5 * Math.PI;
     //Change sprite tint
+    //fish1.anchor.set(.5);
     
 
     //Change sprite size
@@ -46,17 +47,9 @@
     //My Second Sprite
     let fish2 = PIXI.Sprite.from("img/smallfish.png");
 
-    //Change sprite2 coordinates
-    
-
-    //Change Rotationw pi or degrees
-    //fish1.rotation = .5 * Math.PI;
-    //Change sprite tint
-    
-
     //Change sprite2 size
     //fish1.width = 500;
-    fish2.scale.set(.05);
+    fish2.scale.set(.07);
 
 
     //Add it to the stage
@@ -67,8 +60,33 @@
         my_container.addChild(fish1);
         my_container.addChild(fish2);
         my_container.y = 100;
+        //my_container.x = width/2;
+        //my_container.y = height/2;
 
     app.stage.addChild(my_container);
+
+    //ANimation loop function
+    function animationLoop() {
+
+
+        //fish1.y -= 1;
+        //fish2.y += 1;
+       // fish1.angle += 1;
+       //my_container += 1;
+        let time = Date.now();
+
+        let wobble1 = Math.sin(time/1000)*20;
+        let wobble2 = Math.cos(time/1000)*20;
+
+        fish1.y = wobble1;
+        fish2.y = wobble2;
+
+        //Swim and turn animation
+        //fish1.scale.x = Math.sin(time/1000);
+
+        setTimeout(animationLoop, 1000/30);
+    }
+    animationLoop();
 
 
 
