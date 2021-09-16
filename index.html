@@ -78,9 +78,11 @@
     //My school sprite
     let school = PIXI.Sprite.from("img/school.png");
     school.tint = 0x090c14;
+    school.x = 200;
     school.y = 55;
     school.scale.set(.15);
     app.stage.addChild(school);
+
     let kelp2 = PIXI.Sprite.from("img/kelp.png");
     kelp2.scale.set(.675);
     kelp2.y = .4;
@@ -127,6 +129,8 @@
         let wobble3 = Math.sin(time/1500)*20;
         let sway = Math.sin(time/1500)*10;
         let sway2 = Math.cos(time/1200)*10;
+        let swim = Math.sin(time/1500)*1000;
+        
         
 
         fish1.y = wobble1;
@@ -139,7 +143,8 @@
 
         //Swim and turn animation
         //fish1.scale.x = Math.sin(time/1000);
-        
+       
+        school.x = swim;
         
         
 
