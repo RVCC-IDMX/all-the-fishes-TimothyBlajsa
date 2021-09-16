@@ -30,17 +30,8 @@
     fish1.x = 420;
     fish1.y = 0;
 
-    //Change Rotationw pi or degrees
-    //fish1.rotation = .5 * Math.PI;
-    //Change sprite tint
-    //fish1.anchor.set(.5);
-    
-
     //Change sprite size
-    //fish1.width = 500;
-    //fish1.scale.x = 1;
     fish1.scale.set(.095);
-
 
     //Add it to the stage
     app.stage.addChild(fish1);
@@ -49,10 +40,8 @@
     let fish2 = PIXI.Sprite.from("img/smallfish.png");
 
     //Change sprite2 size
-    //fish1.width = 500;
     fish2.scale.set(.07);
     fish2.x = 30;
-
 
     //Add it to the stage
     app.stage.addChild(fish2);
@@ -83,6 +72,7 @@
     school.scale.set(.15);
     app.stage.addChild(school);
 
+    //My second kelp sprite
     let kelp2 = PIXI.Sprite.from("img/kelp.png");
     kelp2.scale.set(.675);
     kelp2.y = .4;
@@ -96,32 +86,22 @@
     coral2.tint = 0x5676c7;
     app.stage.addChild(coral2);
 
-
+    //My third fish sprite
     let fish3 = PIXI.Sprite.from("img/betta.png");
     fish3.scale.set(.1);
     fish3.x = 350;
     fish3.tint = 0x2e3f6b;
     app.stage.addChild(fish3);
-    //My container
+
+    //My container for the first two fish sprites
     var my_container = new PIXI.Container();
         my_container.addChild(fish1);
         my_container.addChild(fish2);
         my_container.y = 100;
-        //my_container.x = width/2;
-        //my_container.y = height/2;
-
     app.stage.addChild(my_container);
-
-
 
     //ANimation loop function
     function animationLoop() {
-
-
-        //fish1.y -= 1;
-        //fish2.y += 1;
-       // fish1.angle += 1;
-       //my_container += 1;
         let time = Date.now();
 
         let wobble1 = Math.sin(time/1000)*20;
@@ -131,31 +111,18 @@
         let sway2 = Math.cos(time/1200)*10;
         let swim = Math.sin(time/1500)*1000;
         
-        
-
         fish1.y = wobble1;
         fish2.y = wobble2;
         fish3.y = wobble3;
         kelp1.x = sway;
         kelp2.x = sway2;
-        
-
-
-        //Swim and turn animation
-        //fish1.scale.x = Math.sin(time/1000);
-       
         school.x = swim;
         
-        
-
         setTimeout(animationLoop, 1000/30);
     }
     animationLoop();
     
-
-
 </script>
 <p>by Timothy Blajsa</p>
-
 </body>
 </html>
