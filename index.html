@@ -16,6 +16,7 @@
     var app = new PIXI.Application({
         width:640,
         height:400,
+        //background: 'img/background.jpg'
         backgroundColor: 0x000000
     });
 
@@ -55,6 +56,11 @@
     //Add it to the stage
     app.stage.addChild(fish2);
 
+    //My background sprite
+    let background = PIXI.Sprite.from("img/background.jpg");
+    background.scale.set(.7);
+    app.stage.addChild(background);
+
     //My container
     var my_container = new PIXI.Container();
         my_container.addChild(fish1);
@@ -64,6 +70,8 @@
         //my_container.y = height/2;
 
     app.stage.addChild(my_container);
+
+
 
     //ANimation loop function
     function animationLoop() {
