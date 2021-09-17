@@ -10,10 +10,13 @@ Sprites include...
 - a small fish
 - a large fish
 - school of fish
+- a minnow fish
 - coral
 - kelp
 
 The various sprites are animated along both sine and cosine waves in order to create movement in the scene
+
+The minnow fish acts as a player sprite in which a function allows it to follow the user mouse on screen
 
 ## Author Testimony
 This experience, being my first time using PIXIJS, was overall very smooth. Following the tutorial was enough to give me the basic toolset to inspire a full scene. I was able to achieve the resulting scene with what was taught in the tutorial. There were no problems during this process, just general troubleshooting anf finetuning individual elements, until I was satisfied with the end product. In addition, I was able to work around certain things, such as a translation movement by adjusting the values of the sine wave, thus giving the appearance of a horizontal movement. 
@@ -27,6 +30,8 @@ This experience, being my first time using PIXIJS, was overall very smooth. Foll
 [Big Fish](https://pngtree.com/freepng/fish_5614059.html)
 
 [School of Fish](https://www.pngitem.com/middle/oJhxT_fish-image-school-of-fish-transparent-background-hd/)
+
+[Minnow Fish](https://www.cleanpng.com/png-fathead-minnow-bluntnose-minnow-freshwater-fish-fi-3564166/download-png.html)
 
 [Background Image](https://unsplash.com/photos/ADcXaqQ9vOM?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink)
 
