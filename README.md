@@ -43,6 +43,7 @@ While the scene is good as is, to make it feel more interactive, the added funct
 [Coral](https://www.pngfind.com/download/hiiJxh_coral-png-picture-portable-network-graphics-transparent-png/)
 
 [Bubble](https://pngtree.com/element/down?id=MzkxNzM4Ng==&type=1&time=1631896500&token=MDY4ZjFiNTI3ZjNlNjVkNjBiM2FlZWYwMjRiMmQ3NzY=)
+[Bubble Alt Link](https://pngtree.com/so/element)
 ### Resources
 [Dower Chin - Pixi.js Tutorials](https://www.youtube.com/watch?v=_HjQTzpbRK4&list=PLGsA9l-S7trVmUJ7HJsNSKIj0qoAO_qO8)
 
