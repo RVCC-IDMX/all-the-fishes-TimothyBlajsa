@@ -22,7 +22,7 @@ The minnow fish acts as a player sprite in which a function allows it to follow 
 ## Author Testimony
 This experience, being my first time using PIXIJS, was overall very smooth. Following the tutorial was enough to give me the basic toolset to inspire a full scene. I was able to achieve the resulting scene with what was taught in the tutorial. There were no problems during this process, just general troubleshooting anf finetuning individual elements, until I was satisfied with the end product. In addition, I was able to work around certain things, such as a translation movement by adjusting the values of the sine wave, thus giving the appearance of a horizontal movement. 
 
-While the scene is good as is, to make it feel more interactive, the added function of having a player sprite follow the user mouse was put in; this was relatively simple, setting a function in which the new position of the sprite is the position of the mouse. 
+While the scene is good as is, to make it feel more interactive, the added function of having a player sprite follow the user mouse was put in; this was relatively simple, setting a function in which the new position of the sprite is the position of the mouse; I also visually modified color values to mimic depth in the scene. 
 
 As far as a strategy goes, my main plan was to use as few lines of code as needed for each specific function, keeping things simple, but also reusable. 
 
@@ -44,7 +44,7 @@ As far as a strategy goes, my main plan was to use as few lines of code as neede
 
 [Coral](https://www.pngfind.com/download/hiiJxh_coral-png-picture-portable-network-graphics-transparent-png/)
 
-[Bubble](https://pngtree.com/element/down?id=MzkxNzM4Ng==&type=1&time=1631896500&token=MDY4ZjFiNTI3ZjNlNjVkNjBiM2FlZWYwMjRiMmQ3NzY=)
+[Bubble](https://pngtree.com/freepng/element-float-round-blue-bubble_3917386.html)
 
 #### Note: some links connect to images where user is only permitted two downloads a day, in the case a link returns a screen where the image itself does not show, use alternate link provided below
 [Bubble Alt Link](https://pngtree.com/so/element)
