@@ -20,9 +20,9 @@ The various sprites are animated along both sine and cosine waves in order to cr
 The minnow fish acts as a player sprite in which a function allows it to follow the user mouse on screen.
 
 ## Author Testimony
-This experience, being my first time using PIXIJS, was overall very smooth. Following the tutorial was enough to give me the basic toolset to inspire a full scene. I was able to achieve the resulting scene with what was taught in the tutorial. There were no problems during this process, just general troubleshooting anf finetuning individual elements, until I was satisfied with the end product. In addition, I was able to work around certain things, such as a translation movement by adjusting the values of the sine wave, thus giving the appearance of a horizontal movement. 
+This experience, being my first time using PIXIJS, was overall very smooth. Following the tutorial was enough to give me the basic toolset to inspire a full scene. I was able to achieve the resulting scene with what was taught in the tutorial. There were no problems during this process, just general troubleshooting anf finetuning individual elements, until I was satisfied with the end product. In addition, I was able to work around certain things, such as a translation movement by adjusting the values of the sine wave, thus giving the appearance of a horizontal movement; in addition, to mimic the feel of depth, I adjusted the tints of the image elements.
 
-While the scene is good as is, to make it feel more interactive, the added function of having a player sprite follow the user mouse was put in; this was relatively simple, setting a function in which the new position of the sprite is the position of the mouse; I also visually modified color values to mimic depth in the scene. 
+While the scene is good as is, to make it feel more interactive, the added function of having a player sprite follow the user mouse was put in; this was relatively simple, setting a function in which the new position of the sprite is the position of the mouse.
 
 As far as a strategy goes, my main plan was to use as few lines of code as needed for each specific function, keeping things simple, but also reusable. 
 
