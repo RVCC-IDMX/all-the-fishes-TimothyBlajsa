@@ -233,10 +233,12 @@
 
     // Click state
     ourButton.on("click",function (e){
-        let randomColor = Math.floor(Math.random()*16777215).toString(16);
-        player.tint= randomColor;
+        let randomColor = Math.floor(Math.random()*0xFFFFFF);
+        fish2.tint= randomColor;
+        console.log(randomColor);
         console.log("clicked");
     });
+
     app.stage.addChild(ourButton);
 
     
