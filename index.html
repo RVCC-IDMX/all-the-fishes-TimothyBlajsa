@@ -196,6 +196,26 @@
         player.x = pos.x;
         player.y = pos.y;
     }
+
+    // Basic button structure
+    let ourButton = new PIXI.Container();
+    ourButton.interactive = true;
+
+    let buttonBody = new PIXI.Graphics();
+    buttonBody.beginFill(0xEEEEEE);
+    buttonBody.drawRect(0,0,100,50);
+    buttonBody.alpha = .7;
+    ourButton.addChild(buttonBody);
+
+    ourButton.body = buttonBody;
+
+    let buttonText = new PIXI.Text('Colors');
+    buttonText.anchor.set(.5,.5);
+    buttonText.x = 50;
+    buttonText.y = 25;
+    ourButton.addChild(buttonText);
+    ourButton.text = buttonText;
+    app.stage.addChild(ourButton);
 </script>
 <p>by Timothy Blajsa</p>
 </body>
