@@ -9,11 +9,17 @@
     </script>
 </head>
 <body style="background-color: rgb(67, 81, 95);">
-    <audio controls autoplay loop>
-        <source src="aquarium.wav" type="audio/wav">
-    </audio>
    <h1></h1> 
 <script>
+
+    // Audio event listener
+    let audio = document.createElement("audio");
+    audio.autoplay = true;
+    audio.src = "aquarium.wav";
+
+    document.addEventListener("mousemove", () => {
+        audio.play();
+    });
 
     //The App
     var app = new PIXI.Application({
@@ -227,6 +233,8 @@
 
     // Click state
     ourButton.on("click",function (e){
+        let randomColor = Math.floor(Math.random()*16777215).toString(16);
+        player.tint= randomColor;
         console.log("clicked");
     });
     app.stage.addChild(ourButton);
