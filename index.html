@@ -241,6 +241,7 @@
     function makeButton(){
     let fishContain = new PIXI.Container();
     fishContain.interactive = true;
+    //fishContain.x = 250;
 
     let fishBody = new PIXI.Graphics();
     fishBody.beginFill(0xEEEEEE);
@@ -262,6 +263,9 @@
     fishText.visible = false;
 
     app.stage.addChild(fishContain);
+
+    fishContain.x = 350;
+    fishContain.y = 20;
     
     // Drag state for fish3
     fishContain.dragging = false;
@@ -273,6 +277,7 @@
             console.log('drag');
             fishContain.x = e.data.global.x;
             fishContain.y = e.data.global.y;
+            //fishContain.anchor.set(0);
         };
     });
     fishContain.on("pointerup", function(e){
