@@ -294,14 +294,14 @@ function makeSlider() {
     
     let track = new PIXI.Graphics();
     track.beginFill(0xCCCCCC);
-    track.drawRect(0,-10,300,20);
+    track.drawRect(200,-10,300,20);
 
     slideContain.addChild(track);
 
     let slide = new PIXI.Graphics();
     slide.interactive = true;
     slide.beginFill(0xEEEEEE);
-    slide.drawRect(-25,-25,50,50);
+    slide.drawRect(175,-25,50,50);
 
     slideContain.addChild(slide);
 
