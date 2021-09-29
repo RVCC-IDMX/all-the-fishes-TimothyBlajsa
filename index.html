@@ -206,7 +206,7 @@
         player.y = pos.y;
     }
 
-    // Basic button structure
+    // Basic button structure for color changing button
     let ourButton = new PIXI.Container();
     ourButton.interactive = true;
 
@@ -226,14 +226,6 @@
     ourButton.text = buttonText;
 
     // Add event listeners for color changing button
-    // Hover state
-    ourButton.on("pointover",function (e) {
-        ourButton.alpha = 0.5;
-    });
-    ourButton.on("pointerout",function(e){
-        ourButton.alpha = 1;
-    });
-
     // Click state
     ourButton.on("click",function (e){
         let randomColor = Math.floor(Math.random()*0xFFFFFF);
@@ -244,7 +236,7 @@
 
     app.stage.addChild(ourButton);
 
-    // Drag state for fish3
+    // Basic button strucutre for dragging fish3
     //create fish3 container, place fish3 inside container which will be the neew button for dragging
     function makeButton(){
     let fishContain = new PIXI.Container();
@@ -260,7 +252,6 @@
     fishContain.body = fishBody;
     fishBody.visible = false;
     
-
     let fishText = new PIXI.Text('fish');
     fishText.anchor.set(.5,.5);
     fishText.x = 400;
@@ -271,7 +262,8 @@
     fishText.visible = false;
 
     app.stage.addChild(fishContain);
-
+    
+    // Drag state for fish3
     fishContain.dragging = false;
     fishContain.on("pointerdown", function(e){
         fishContain.dragging= true;
@@ -284,10 +276,10 @@
         };
     });
     fishContain.on("pointerup", function(e){
-        fishContain.draggin = false;
+        fishContain.dragging = false;
     });
     fishContain.on("pointerupoutside", function(e){
-        fishContain.draggin = false;
+        fishContain.dragging = false;
     });
     return fishContain;
 };
