@@ -215,7 +215,23 @@
     buttonText.y = 25;
     ourButton.addChild(buttonText);
     ourButton.text = buttonText;
+
+    // Add event listeners for color changing button
+    // Hover state
+    ourButton.on("pointover",function (e) {
+        ourButton.alpha = 0.5;
+    });
+    ourButton.on("pointerout",function(e){
+        ourButton.alpha = 1;
+    });
+
+    // Click state
+    ourButton.on("click",function (e){
+        console.log("clicked");
+    });
     app.stage.addChild(ourButton);
+
+    
 </script>
 <p>by Timothy Blajsa</p>
 </body>
