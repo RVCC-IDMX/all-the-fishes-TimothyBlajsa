@@ -284,7 +284,32 @@
     return fishContain;
 };
 let fishContain = makeButton();
+  
+// Begin Slide 
+
+function makeSlider() {
+    let slideContain = new PIXI.Container();
+    slideContain.interactive = true;
+    slideContain.value = 0;
     
+    let track = new PIXI.Graphics();
+    track.beginFill(0xCCCCCC);
+    track.drawRect(0,-10,300,20);
+
+    slideContain.addChild(track);
+
+    let slide = new PIXI.Graphics();
+    slide.interactive = true;
+    slide.beginFill(0xEEEEEE);
+    slide.drawRect(-25,-25,50,50);
+
+    slideContain.addChild(slide);
+
+    return slideContain;
+    app.stage.addChild(slideContain);
+};
+let slideContain = makeSlider();
+
 
     
 </script>
