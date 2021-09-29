@@ -302,6 +302,7 @@ function makeSlider() {
     slide.interactive = true;
     slide.beginFill(0xEEEEEE);
     slide.drawRect(175,-25,50,50);
+    
 
     slideContain.addChild(slide);
 
@@ -321,6 +322,7 @@ function makeSlider() {
 
             slideContain.value = newX/track.width;
             slide.x = newX;
+            fish1.scale.set(newX/1200);
             console.log(slideContain.value);
         }
     });
@@ -331,6 +333,8 @@ function makeSlider() {
         slide.dragging = false;
     });
     return slideContain;
+
+    
 };
 let slideContain = makeSlider();
 app.stage.addChild(slideContain);
