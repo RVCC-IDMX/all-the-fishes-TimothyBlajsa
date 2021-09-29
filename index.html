@@ -241,6 +241,47 @@
 
     app.stage.addChild(ourButton);
 
+    // Drag state for fish3
+    //create fish3 container, place fish3 inside container which will be the neew button for dragging
+    let fishContain = new PIXI.Container();
+    fishContain.interactive = true;
+
+    let fishBody = new PIXI.Graphics();
+    fishBody.beginFill(0xEEEEEE);
+    fishBody.drawRect(0,0,100,50);
+    fishBody.alpha = .7;
+    fishBody.x = 350;
+    fishContain.addChild(fishBody);
+
+    fishContain.body = fishBody;
+    fishBody.visible = false;
+
+    let fishText = new PIXI.Text('fish');
+    fishText.anchor.set(.5,.5);
+    fishText.x = 400;
+    fishText.y = 25;
+    fishContain.addChild(fishText);
+    fishContain.text = fishText;
+    fishContain.addChild(fish3);
+    //
+    app.stage.addChild(fishContain);
+    fish3.dragging = false;
+    fish3.on("pointerdown", function(e){
+        fish3.dragging= true;
+    });
+    fish3.on("pointermove", function (e){
+        if(fish3.dragging){
+            console.log('drag');
+            fish3.x = e.data.global.x;
+            fish3.y = e.data.global.y;
+        };
+    });
+    fish3.on("pointerup", function(e){
+        fish3.draggin = false;
+    });
+
+    
+
     
 </script>
 <p>by Timothy Blajsa</p>
