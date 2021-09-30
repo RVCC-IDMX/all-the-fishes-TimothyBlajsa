@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,345 +9,347 @@
     <script src="https://pixijs.download/release/pixi.js">
     </script>
 </head>
+
 <body style="background-color: rgb(67, 81, 95);">
-   <h1></h1> 
-<script>
+    <h1></h1>
+    <script>
 
-    // Audio event listener
-    let audio = document.createElement("audio");
-    audio.autoplay = true;
-    audio.src = "aquarium.wav";
+        // Audio event listener
+        let audio = document.createElement("audio");
+        audio.autoplay = true;
+        audio.src = "aquarium.wav";
 
-    document.addEventListener("mousemove", () => {
-        audio.play();
-    });
+        document.addEventListener("mousemove", () => {
+            audio.play();
+        });
 
-    //The App
-    var app = new PIXI.Application({
-        width:640,
-        height:400,
-        //background: 'img/background.jpg'
-        backgroundColor: 0x000000
-    });
+        //The App
+        var app = new PIXI.Application({
+            width: 640,
+            height: 400,
+            //background: 'img/background.jpg'
+            backgroundColor: 0x000000
+        });
 
-    //Add view to the document
-    document.body.appendChild(app.view);
+        //Add view to the document
+        document.body.appendChild(app.view);
 
-    //My First Sprite
-    let fish1 = PIXI.Sprite.from("img/bigfish.png");
+        //My First Sprite
+        let fish1 = PIXI.Sprite.from("img/bigfish.png");
 
-    //Change sprite coordinates
-    fish1.x = 420;
-    fish1.y = 0;
+        //Change sprite coordinates
+        fish1.x = 420;
+        fish1.y = 0;
 
-    //Change sprite size
-    fish1.scale.set(.095);
+        //Change sprite size
+        fish1.scale.set(.095);
 
-    //Add it to the stage
-    app.stage.addChild(fish1);
+        //Add it to the stage
+        app.stage.addChild(fish1);
 
-    //My Second Sprite
-    let fish2 = PIXI.Sprite.from("img/smallfish.png");
+        //My Second Sprite
+        let fish2 = PIXI.Sprite.from("img/smallfish.png");
 
-    //Change sprite2 size
-    fish2.scale.set(.07);
-    fish2.x = 30;
+        //Change sprite2 size
+        fish2.scale.set(.07);
+        fish2.x = 30;
 
-    //Add it to the stage
-    app.stage.addChild(fish2);
+        //Add it to the stage
+        app.stage.addChild(fish2);
 
-    //My background sprite
-    let background = PIXI.Sprite.from("img/background.jpg");
-    background.scale.set(.7);
-    app.stage.addChild(background);
+        //My background sprite
+        let background = PIXI.Sprite.from("img/background.jpg");
+        background.scale.set(.7);
+        app.stage.addChild(background);
 
-    //My kelp sprite
-    let kelp1 = PIXI.Sprite.from("img/kelp.png");
-    kelp1.scale.set(.5);
-    kelp1.tint = 0x212f55;
-    app.stage.addChild(kelp1);
+        //My kelp sprite
+        let kelp1 = PIXI.Sprite.from("img/kelp.png");
+        kelp1.scale.set(.5);
+        kelp1.tint = 0x212f55;
+        app.stage.addChild(kelp1);
 
-    //My coral sprite
-    let coral = PIXI.Sprite.from("img/coral.png");
-    coral.x = 300;
-    coral.scale.set(.5);
-    coral.tint = 0x253152;
-    app.stage.addChild(coral);
+        //My coral sprite
+        let coral = PIXI.Sprite.from("img/coral.png");
+        coral.x = 300;
+        coral.scale.set(.5);
+        coral.tint = 0x253152;
+        app.stage.addChild(coral);
 
-    //My school sprite
-    let school = PIXI.Sprite.from("img/school.png");
-    school.tint = 0x090c14;
-    school.x = 200;
-    school.y = 55;
-    school.scale.set(.15);
-    app.stage.addChild(school);
+        //My school sprite
+        let school = PIXI.Sprite.from("img/school.png");
+        school.tint = 0x090c14;
+        school.x = 200;
+        school.y = 55;
+        school.scale.set(.15);
+        app.stage.addChild(school);
 
-    //My second kelp sprite
-    let kelp2 = PIXI.Sprite.from("img/kelp.png");
-    kelp2.scale.set(.675);
-    kelp2.y = .4;
-    app.stage.addChild(kelp2);
+        //My second kelp sprite
+        let kelp2 = PIXI.Sprite.from("img/kelp.png");
+        kelp2.scale.set(.675);
+        kelp2.y = .4;
+        app.stage.addChild(kelp2);
 
-    //My second coral sprite
-    let coral2 = PIXI.Sprite.from("img/coral.png");
-    coral2.scale.set(.8);
-    coral2.y = 20;
-    coral2.x = -400;
-    coral2.tint = 0x5676c7;
-    app.stage.addChild(coral2);
+        //My second coral sprite
+        let coral2 = PIXI.Sprite.from("img/coral.png");
+        coral2.scale.set(.8);
+        coral2.y = 20;
+        coral2.x = -400;
+        coral2.tint = 0x5676c7;
+        app.stage.addChild(coral2);
 
-    //My third fish sprite
-    let fish3 = PIXI.Sprite.from("img/betta.png");
-    fish3.scale.set(.1);
-    fish3.x = -10;
-    fish3.y = -10;
-    //fish3.x.anchor = 200;
-    //fish3.y.anchor = 20;
-    fish3.tint = 0x2e3f6b;
-    app.stage.addChild(fish3);
+        //My third fish sprite
+        let fish3 = PIXI.Sprite.from("img/betta.png");
+        fish3.scale.set(.1);
+        fish3.x = -10;
+        fish3.y = -10;
+        //fish3.x.anchor = 200;
+        //fish3.y.anchor = 20;
+        fish3.tint = 0x2e3f6b;
+        app.stage.addChild(fish3);
 
-    //My container for the first two fish sprites
-    var my_container = new PIXI.Container();
+        //My container for the first two fish sprites
+        var my_container = new PIXI.Container();
         my_container.addChild(fish1);
         my_container.addChild(fish2);
         my_container.y = 100;
-    app.stage.addChild(my_container);
+        app.stage.addChild(my_container);
 
-    //My sprite for the bubbles
-    let bubble1 = new PIXI.Sprite.from("img/bubble.png");
-    bubble1.scale.set(.01);
-    app.stage.addChild(bubble1);
+        //My sprite for the bubbles
+        let bubble1 = new PIXI.Sprite.from("img/bubble.png");
+        bubble1.scale.set(.01);
+        app.stage.addChild(bubble1);
 
-    let bubble2 = new PIXI.Sprite.from("img/bubble.png");
-    bubble2.scale.set(.01);
-    bubble2.x = 80;
-    app.stage.addChild(bubble2);
+        let bubble2 = new PIXI.Sprite.from("img/bubble.png");
+        bubble2.scale.set(.01);
+        bubble2.x = 80;
+        app.stage.addChild(bubble2);
 
-    let bubble3 = new PIXI.Sprite.from("img/bubble.png");
-    bubble3.scale.set(.01);
-    bubble3.x = 90;
-    app.stage.addChild(bubble3);
+        let bubble3 = new PIXI.Sprite.from("img/bubble.png");
+        bubble3.scale.set(.01);
+        bubble3.x = 90;
+        app.stage.addChild(bubble3);
 
-    let bubble4 = new PIXI.Sprite.from("img/bubble.png");
-    bubble4.scale.set(.01);
-    bubble4.x = 105;
-    app.stage.addChild(bubble4);
+        let bubble4 = new PIXI.Sprite.from("img/bubble.png");
+        bubble4.scale.set(.01);
+        bubble4.x = 105;
+        app.stage.addChild(bubble4);
 
-    let bubble5 = new PIXI.Sprite.from("img/bubble.png");
-    bubble5.scale.set(.01);
-    bubble5.x = 550;
-    app.stage.addChild(bubble5);
+        let bubble5 = new PIXI.Sprite.from("img/bubble.png");
+        bubble5.scale.set(.01);
+        bubble5.x = 550;
+        app.stage.addChild(bubble5);
 
-    let bubble6 = new PIXI.Sprite.from("img/bubble.png");
-    bubble6.scale.set(.01);
-    bubble6.x = 570;
-    app.stage.addChild(bubble6);
+        let bubble6 = new PIXI.Sprite.from("img/bubble.png");
+        bubble6.scale.set(.01);
+        bubble6.x = 570;
+        app.stage.addChild(bubble6);
 
-    let bubble7 = new PIXI.Sprite.from("img/bubble.png");
-    bubble7.scale.set(.01);
-    bubble7.x = 600;
-    app.stage.addChild(bubble7);
+        let bubble7 = new PIXI.Sprite.from("img/bubble.png");
+        bubble7.scale.set(.01);
+        bubble7.x = 600;
+        app.stage.addChild(bubble7);
 
-    let bubble8 = new PIXI.Sprite.from("img/bubble.png");
-    bubble8.scale.set(.01);
-    bubble8.x = 610;
-    app.stage.addChild(bubble8);
+        let bubble8 = new PIXI.Sprite.from("img/bubble.png");
+        bubble8.scale.set(.01);
+        bubble8.x = 610;
+        app.stage.addChild(bubble8);
 
-    //ANimation loop function
-    function animationLoop() {
-        let time = Date.now();
+        //ANimation loop function
+        function animationLoop() {
+            let time = Date.now();
 
-        let wobble1 = Math.sin(time/1000)*20;
-        let wobble2 = Math.cos(time/1000)*20;
-        let wobble3 = Math.sin(time/1500)*20;
-        let wobble4 = Math.sin(time/500)*5;
-        let wobble5 = Math.cos(time/500)*5;
-        let sway = Math.sin(time/1500)*10;
-        let sway2 = Math.cos(time/1200)*10;
-        let swim = Math.sin(time/1500)*1000;
-        
-        fish1.y = wobble1;
-        fish2.y = wobble2;
-        fish3.y = wobble3;
-        kelp1.x = sway;
-        kelp2.x = sway2;
-        school.x = swim;
-        
-        //Bubble animations
-        bubble1.y = wobble4;
-        bubble2.y = wobble5;
-        bubble3.y = wobble5;
-        bubble4.y = wobble4;
+            let wobble1 = Math.sin(time / 1000) * 20;
+            let wobble2 = Math.cos(time / 1000) * 20;
+            let wobble3 = Math.sin(time / 1500) * 20;
+            let wobble4 = Math.sin(time / 500) * 5;
+            let wobble5 = Math.cos(time / 500) * 5;
+            let sway = Math.sin(time / 1500) * 10;
+            let sway2 = Math.cos(time / 1200) * 10;
+            let swim = Math.sin(time / 1500) * 1000;
 
-        bubble5.y = wobble5;
-        bubble6.y = wobble4;
-        bubble7.y = wobble4;
-        bubble8.y = wobble5;
-        
-        setTimeout(animationLoop, 1000/30);
-    }
-    animationLoop();
+            fish1.y = wobble1;
+            fish2.y = wobble2;
+            fish3.y = wobble3;
+            kelp1.x = sway;
+            kelp2.x = sway2;
+            school.x = swim;
 
-    //My player sprite
-    let player = new PIXI.Sprite.from("img/minnow.png");
-    player.scale.set(.05);
-    player.anchor.set(0);
-    player.x = app.view.width / 2;
-    player.y = app.view.height / 2;
-    app.stage.addChild(player);
-    
-    //Player mouse interaction
-    app.stage.interactive = true;
-    app.stage.on("pointermove", movePlayer);
+            //Bubble animations
+            bubble1.y = wobble4;
+            bubble2.y = wobble5;
+            bubble3.y = wobble5;
+            bubble4.y = wobble4;
 
-    function movePlayer(e){
-        let pos = e.data.global;
+            bubble5.y = wobble5;
+            bubble6.y = wobble4;
+            bubble7.y = wobble4;
+            bubble8.y = wobble5;
 
-        player.x = pos.x;
-        player.y = pos.y;
-    }
-
-    // Basic button structure for color changing button
-    let ourButton = new PIXI.Container();
-    ourButton.interactive = true;
-
-    let buttonBody = new PIXI.Graphics();
-    buttonBody.beginFill(0xEEEEEE);
-    buttonBody.drawRect(0,0,100,50);
-    buttonBody.alpha = .7;
-    ourButton.addChild(buttonBody);
-
-    ourButton.body = buttonBody;
-
-    let buttonText = new PIXI.Text('Colors');
-    buttonText.anchor.set(.5,.5);
-    buttonText.x = 50;
-    buttonText.y = 25;
-    ourButton.addChild(buttonText);
-    ourButton.text = buttonText;
-
-    // Add event listeners for color changing button
-    // Click state
-    ourButton.on("click",function (e){
-        let randomColor = Math.floor(Math.random()*0xFFFFFF);
-        fish2.tint= randomColor;
-        console.log(randomColor);
-        console.log("clicked");
-    });
-
-    app.stage.addChild(ourButton);
-
-    // Basic button strucutre for dragging fish3
-    //create fish3 container, place fish3 inside container which will be the neew button for dragging
-    function makeButton(){
-    let fishContain = new PIXI.Container();
-    fishContain.interactive = true;
-    //fishContain.x = 250;
-
-    let fishBody = new PIXI.Graphics();
-    fishBody.beginFill(0xEEEEEE);
-    fishBody.drawRect(0,0,100,50);
-    fishBody.alpha = .7;
-    fishBody.x = 350;
-    fishContain.addChild(fishBody);
-
-    fishContain.body = fishBody;
-    fishBody.visible = false;
-    
-    let fishText = new PIXI.Text('fish');
-    fishText.anchor.set(.5,.5);
-    fishText.x = 400;
-    fishText.y = 25;
-    fishContain.addChild(fishText);
-    fishContain.text = fishText;
-    fishContain.addChild(fish3);
-    fishText.visible = false;
-
-    app.stage.addChild(fishContain);
-
-    fishContain.x = 350;
-    fishContain.y = 20;
-    
-    // Drag state for fish3
-    fishContain.dragging = false;
-    fishContain.on("pointerdown", function(e){
-        fishContain.dragging= true;
-    });
-    fishContain.on("pointermove", function (e){
-        if(fishContain.dragging){
-            console.log('drag');
-            fishContain.x = e.data.global.x;
-            fishContain.y = e.data.global.y;
-            //fishContain.anchor.set(0);
-        };
-    });
-    fishContain.on("pointerup", function(e){
-        fishContain.dragging = false;
-    });
-    fishContain.on("pointerupoutside", function(e){
-        fishContain.dragging = false;
-    });
-    return fishContain;
-};
-let fishContain = makeButton();
-  
-// Begin Slide 
-
-function makeSlider() {
-    let slideContain = new PIXI.Container();
-    slideContain.interactive = true;
-    slideContain.value = 0;
-    
-    let track = new PIXI.Graphics();
-    track.beginFill(0xCCCCCC);
-    track.drawRect(200,-10,300,20);
-
-    slideContain.addChild(track);
-
-    let slide = new PIXI.Graphics();
-    slide.interactive = true;
-    slide.beginFill(0xEEEEEE);
-    slide.drawRect(175,-25,50,50);
-    
-
-    slideContain.addChild(slide);
-
-    // Event listeners
-    slide.dragging = false;
-    slide.on("pointerdown", function (e){
-        slide.dragging = true;
-        console.log('click');
-    });
-    slide.on("pointermove", function (e) {
-        if(slide.dragging){
-            let newX = e.data.global.x - slideContain.getGlobalPosition().x - 200;
-            let newY = e.data.global.y - slideContain.getGlobalPosition().y;
-            //
-
-            if (newX > track.width) newX = track.width;
-            if (newX < 0 )newX = 0;
-
-            slideContain.value = newX/track.width;
-            slide.x = newX;
-            fish1.scale.set(newX/1200);
-            console.log(slideContain.value);
+            setTimeout(animationLoop, 1000 / 30);
         }
-    });
-    slide.on("pointerup", function (e) {
-        slide.dragging = false;
-    });
-    slide.on("pointerupoutside", function (e){
-        slide.dragging = false;
-    });
-    return slideContain;
+        animationLoop();
 
-    
-};
-let slideContain = makeSlider();
-app.stage.addChild(slideContain);
+        //My player sprite
+        let player = new PIXI.Sprite.from("img/minnow.png");
+        player.scale.set(.05);
+        player.anchor.set(0);
+        player.x = app.view.width / 2;
+        player.y = app.view.height / 2;
+        app.stage.addChild(player);
 
-    
-</script>
-<p>by Timothy Blajsa</p>
+        //Player mouse interaction
+        app.stage.interactive = true;
+        app.stage.on("pointermove", movePlayer);
+
+        function movePlayer(e) {
+            let pos = e.data.global;
+
+            player.x = pos.x;
+            player.y = pos.y;
+        }
+
+        // Basic button structure for color changing button
+        let ourButton = new PIXI.Container();
+        ourButton.interactive = true;
+
+        let buttonBody = new PIXI.Graphics();
+        buttonBody.beginFill(0xEEEEEE);
+        buttonBody.drawRect(0, 0, 100, 50);
+        buttonBody.alpha = .7;
+        ourButton.addChild(buttonBody);
+
+        ourButton.body = buttonBody;
+
+        let buttonText = new PIXI.Text('Colors');
+        buttonText.anchor.set(.5, .5);
+        buttonText.x = 50;
+        buttonText.y = 25;
+        ourButton.addChild(buttonText);
+        ourButton.text = buttonText;
+
+        // Add event listeners for color changing button
+        // Click state
+        ourButton.on("click", function (e) {
+            let randomColor = Math.floor(Math.random() * 0xFFFFFF);
+            fish2.tint = randomColor;
+            console.log(randomColor);
+            console.log("clicked");
+        });
+
+        app.stage.addChild(ourButton);
+
+        // Basic button strucutre for dragging fish3
+        //create fish3 container, place fish3 inside container which will be the neew button for dragging
+        function makeButton() {
+            let fishContain = new PIXI.Container();
+            fishContain.interactive = true;
+            //fishContain.x = 250;
+
+            let fishBody = new PIXI.Graphics();
+            fishBody.beginFill(0xEEEEEE);
+            fishBody.drawRect(0, 0, 100, 50);
+            fishBody.alpha = .7;
+            fishBody.x = 350;
+            fishContain.addChild(fishBody);
+
+            fishContain.body = fishBody;
+            fishBody.visible = false;
+
+            let fishText = new PIXI.Text('fish');
+            fishText.anchor.set(.5, .5);
+            fishText.x = 400;
+            fishText.y = 25;
+            fishContain.addChild(fishText);
+            fishContain.text = fishText;
+            fishContain.addChild(fish3);
+            fishText.visible = false;
+
+            app.stage.addChild(fishContain);
+
+            fishContain.x = 350;
+            fishContain.y = 20;
+
+            // Drag state for fish3
+            fishContain.dragging = false;
+            fishContain.on("pointerdown", function (e) {
+                fishContain.dragging = true;
+            });
+            fishContain.on("pointermove", function (e) {
+                if (fishContain.dragging) {
+                    console.log('drag');
+                    fishContain.x = e.data.global.x;
+                    fishContain.y = e.data.global.y;
+                    //fishContain.anchor.set(0);
+                };
+            });
+            fishContain.on("pointerup", function (e) {
+                fishContain.dragging = false;
+            });
+            fishContain.on("pointerupoutside", function (e) {
+                fishContain.dragging = false;
+            });
+            return fishContain;
+        };
+        let fishContain = makeButton();
+
+        // Begin Slide 
+
+        function makeSlider() {
+            let slideContain = new PIXI.Container();
+            slideContain.interactive = true;
+            slideContain.value = 0;
+
+            let track = new PIXI.Graphics();
+            track.beginFill(0xCCCCCC);
+            track.drawRect(200, -10, 300, 20);
+
+            slideContain.addChild(track);
+
+            let slide = new PIXI.Graphics();
+            slide.interactive = true;
+            slide.beginFill(0xEEEEEE);
+            slide.drawRect(175, -25, 50, 50);
+
+
+            slideContain.addChild(slide);
+
+            // Event listeners
+            slide.dragging = false;
+            slide.on("pointerdown", function (e) {
+                slide.dragging = true;
+                console.log('click');
+            });
+            slide.on("pointermove", function (e) {
+                if (slide.dragging) {
+                    let newX = e.data.global.x - slideContain.getGlobalPosition().x - 200;
+                    let newY = e.data.global.y - slideContain.getGlobalPosition().y;
+                    //
+
+                    if (newX > track.width) newX = track.width;
+                    if (newX < 0) newX = 0;
+
+                    slideContain.value = newX / track.width;
+                    slide.x = newX;
+                    fish1.scale.set(newX / 1200);
+                    console.log(slideContain.value);
+                }
+            });
+            slide.on("pointerup", function (e) {
+                slide.dragging = false;
+            });
+            slide.on("pointerupoutside", function (e) {
+                slide.dragging = false;
+            });
+            return slideContain;
+
+
+        };
+        let slideContain = makeSlider();
+        app.stage.addChild(slideContain);
+
+
+    </script>
+    <p>by Timothy Blajsa</p>
 </body>
+
 </html>
