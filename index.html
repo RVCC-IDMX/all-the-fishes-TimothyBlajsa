@@ -202,11 +202,11 @@
         player.dragging = false;
         player.on("pointerdown", e => {
             player.dragging = true;
-            console.log("clicked");
+            //console.log("clicked");
         })
         player.on("pointermove", e => {
             if (player.dragging) {
-                console.log("dragging");
+               //console.log("dragging");
                 player.x = e.data.global.x;
                 player.y = e.data.global.y;
             };
@@ -231,7 +231,6 @@
         ourButton.body = buttonBody;
 
         let buttonText = new PIXI.Text('Colors');
-        buttonText.style.font = "50px";
         buttonText.anchor.set(.5, .5);
         buttonText.x = 50;
         buttonText.y = 25;
@@ -240,14 +239,13 @@
 
         // Add event listeners for color changing button
         // Click state
-        ourButton.on("pointerdown", function (e) {
+        ourButton.on("pointerdown", e => {
             let randomColor = Math.floor(Math.random() * 0xFFFFFF);
             fish2.tint = randomColor;
             buttonBody.tint = randomColor;
             buttonText.text = randomColor.toString(16);
-            console.log(randomColor);
-            console.log("clicked");
-            
+            //console.log(randomColor);
+            //console.log("clicked");
         });
 
         app.stage.addChild(ourButton);
@@ -277,7 +275,7 @@
             slide.dragging = false;
             slide.on("pointerdown", e => {
                 slide.dragging = true;
-                console.log('click');
+                //console.log('click');
             });
 
             slide.on("pointermove", e => {
