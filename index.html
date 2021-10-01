@@ -224,7 +224,7 @@
 
         let buttonBody = new PIXI.Graphics();
         buttonBody.beginFill(0xEEEEEE);
-        buttonBody.drawRect(0, 0, 100, 50);
+        buttonBody.drawRoundedRect(0,0,100,50);
         buttonBody.alpha = .7;
         ourButton.addChild(buttonBody);
 
@@ -256,7 +256,7 @@
 
             let track = new PIXI.Graphics();
             track.beginFill(0xCCCCCC);
-            track.drawRect(200, -10, 300, 20);
+            track.drawRoundedRect(200, -10, 300, 20);
             track.alpha = .7;
 
             slideContain.addChild(track);
@@ -264,7 +264,7 @@
             let slide = new PIXI.Graphics();
             slide.interactive = true;
             slide.beginFill(0xEEEEEE);
-            slide.drawRect(175, -25, 50, 50);
+            slide.drawRoundedRect(175, -25, 50, 50);
             slide.alpha = .95;
 
             slideContain.addChild(slide);
