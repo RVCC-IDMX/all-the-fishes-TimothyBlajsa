@@ -100,8 +100,8 @@
         //My third fish sprite
         let fish3 = PIXI.Sprite.from("img/betta.png");
         fish3.scale.set(.1);
-        fish3.x = -10;
-        fish3.y = -10;
+        fish3.x = 350;
+        fish3.y = 50;
         //fish3.x.anchor = 200;
         //fish3.y.anchor = 20;
         fish3.tint = 0x2e3f6b;
@@ -199,8 +199,6 @@
         app.stage.addChild(player);
 
         //Player mouse interaction
-        //Player mouse interaction
-        
         player.dragging = false;
         player.on("pointerdown", function (e){
             player.dragging = true;
