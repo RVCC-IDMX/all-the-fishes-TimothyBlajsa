@@ -30,6 +30,8 @@ As far as a strategy goes, my main plan was to use as few lines of code as neede
 ### Audio
 [Aquarium Noises](https://freesound.org/s/167748/)
 ### Images
+[Favicon by Freepik.com](https://www.flaticon.com/free-icon/fish_1691086?term=fish&page=1&position=8&page=1&position=8&related_id=1691086&origin=tag)
+
 [Betta](https://www.clipartkey.com/view/oJoibm_transparent-beta-fish-png-blue-betta-fish-sticker/)
 
 [Small Fish](https://pngtree.com/freepng/fish-for-display_5640267.html)
