@@ -200,21 +200,21 @@
 
         //Player mouse interaction
         player.dragging = false;
-        player.on("pointerdown", function (e){
+        player.on("pointerdown", e => {
             player.dragging = true;
             console.log("clicked");
         })
-        player.on("pointermove", function (e) {
+        player.on("pointermove", e => {
             if(player.dragging){
                 console.log("dragging");
                 player.x = e.data.global.x;
                 player.y = e.data.global.y;
             };
         })
-        player.on("pointerup", function (e){
+        player.on("pointerup", e => {
             player.dragging = false;
         })
-        player.on("pointerupoutside", function (e) {
+        player.on("pointerupoutside", e => {
             player.dragging = false;
         })
 
