@@ -102,8 +102,6 @@
         fish3.scale.set(.1);
         fish3.x = 350;
         fish3.y = 50;
-        //fish3.x.anchor = 200;
-        //fish3.y.anchor = 20;
         fish3.tint = 0x2e3f6b;
         app.stage.addChild(fish3);
 
@@ -218,18 +216,6 @@
             player.dragging = false;
         })
 
-        //Player mouse interaction
-        // app.stage.interactive = true;
-        // app.stage.on("pointermove", movePlayer);
-
-        // function movePlayer(e) {
-        //     let pos = e.data.global;
-
-        //     player.x = pos.x;
-        //     player.y = pos.y;
-        // }
-        
-
         // Basic button structure for color changing button
         let ourButton = new PIXI.Container();
         ourButton.interactive = true;
@@ -259,62 +245,6 @@
         });
 
         app.stage.addChild(ourButton);
-
-        // Basic button strucutre for dragging fish3
-        //create fish3 container, place fish3 inside container which will be the neew button for dragging
-        // function makeButton() {
-        //     let fishContain = new PIXI.Container();
-        //     fishContain.interactive = true;
-        //     //fishContain.x = 250;
-
-        //     // Button styling for testing purposes
-        //     let fishBody = new PIXI.Graphics();
-        //     fishBody.beginFill(0xEEEEEE);
-        //     fishBody.drawRect(0, 0, 100, 50);
-        //     fishBody.alpha = .7;
-        //     fishBody.x = 350;
-        //     fishContain.addChild(fishBody);
-
-        //     fishContain.body = fishBody;
-        //     fishBody.visible = false;
-
-        //     let fishText = new PIXI.Text('fish');
-        //     fishText.anchor.set(.5, .5);
-        //     fishText.x = 400;
-        //     fishText.y = 25;
-        //     fishContain.addChild(fishText);
-        //     fishContain.text = fishText;
-        //     fishContain.addChild(fish3);
-        //     fishText.visible = false;
-        //     // end button test styling
-
-        //     // Add fishContainer and position it
-        //     app.stage.addChild(fishContain);
-
-        //     fishContain.x = 350;
-        //     fishContain.y = 20;
-
-        //     // Drag state for fish3
-        //     fishContain.dragging = false;
-        //     fishContain.on("pointerdown", function (e) {
-        //         fishContain.dragging = true;
-        //     });
-        //     fishContain.on("pointermove", function (e) {
-        //         if (fishContain.dragging) {
-        //             console.log('drag');
-        //             fishContain.x = e.data.global.x;
-        //             fishContain.y = e.data.global.y;
-        //         };
-        //     });
-        //     fishContain.on("pointerup", function (e) {
-        //         fishContain.dragging = false;
-        //     });
-        //     fishContain.on("pointerupoutside", function (e) {
-        //         fishContain.dragging = false;
-        //     });
-        //     return fishContain;
-        // };
-        // let fishContain = makeButton();
 
         // Begin Slide logic
         function makeSlider() {
