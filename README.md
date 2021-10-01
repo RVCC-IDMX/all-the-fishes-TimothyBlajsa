@@ -17,7 +17,9 @@ Sprites include...
 
 The various sprites are animated along both sine and cosine waves in order to create movement in the scene.
 
-The minnow fish acts as a player sprite in which a function allows it to follow the user mouse on screen.
+The minnow fish acts as a player sprite in which a function allows it to be grabbed, dragged, and placed wherever the use wishes.
+
+In addition, the interactivity of a button and slider have been included, the button generating a random hex color and assigning it to the fish on the left, and the slider adjusting the size of the fish on the right.
 
 ## Author Testimony
 This experience, being my first time using PIXIJS, was overall very smooth. Following the tutorial was enough to give me the basic toolset to inspire a full scene. I was able to achieve the resulting scene with what was taught in the tutorial. There were no problems during this process, just general troubleshooting and finetuning individual elements, until I was satisfied with the end product. In addition, I was able to work around certain things, such as a translation movement by adjusting the values of the sine wave, thus giving the appearance of a horizontal movement; to mimic the feel of depth, I adjusted the tints of the image elements.
