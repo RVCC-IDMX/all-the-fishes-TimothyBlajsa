@@ -269,14 +269,14 @@
 
             slideContain.addChild(slide);
 
-            // Event listeners
+            // Listeners for dragging interaction
             slide.dragging = false;
-            slide.on("pointerdown", function (e) {
+            slide.on("pointerdown", e => {
                 slide.dragging = true;
                 console.log('click');
             });
 
-            slide.on("pointermove", function (e) {
+            slide.on("pointermove", e => {
                 if (slide.dragging) {
                     let newX = e.data.global.x - slideContain.getGlobalPosition().x - 200;
                     let newY = e.data.global.y - slideContain.getGlobalPosition().y;
@@ -290,10 +290,10 @@
                     //console.log(slideContain.value);
                 }
             });
-            slide.on("pointerup", function (e) {
+            slide.on("pointerup", e => {
                 slide.dragging = false;
             });
-            slide.on("pointerupoutside", function (e) {
+            slide.on("pointerupoutside", e => {
                 slide.dragging = false;
             });
             return slideContain;
