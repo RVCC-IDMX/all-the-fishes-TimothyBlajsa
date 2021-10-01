@@ -184,13 +184,14 @@
             bubble8.y = wobble5;
 
             setTimeout(animationLoop, 1000 / 30);
+            
         }
         animationLoop();
 
         //My player sprite
         let player = new PIXI.Sprite.from("img/minnow.png");
         player.scale.set(.05);
-        player.anchor.set(0);
+        //player.anchor.set(0);
         player.x = app.view.width / 2;
         player.y = app.view.height / 2;
         player.interactive = true;
@@ -216,7 +217,7 @@
             player.dragging = false;
         })
 
-        // Basic button structure for color changing button
+        // Color changing button logic
         let ourButton = new PIXI.Container();
         ourButton.interactive = true;
 
@@ -255,6 +256,7 @@
             let track = new PIXI.Graphics();
             track.beginFill(0xCCCCCC);
             track.drawRect(200, -10, 300, 20);
+            track.alpha = .7;
 
             slideContain.addChild(track);
 
@@ -262,6 +264,7 @@
             slide.interactive = true;
             slide.beginFill(0xEEEEEE);
             slide.drawRect(175, -25, 50, 50);
+            slide.alpha = .95;
 
             slideContain.addChild(slide);
 
