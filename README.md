@@ -17,7 +17,7 @@ Sprites include...
 
 The various sprites are animated along both sine and cosine waves in order to create movement in the scene.
 
-The minnow fish acts as a player sprite in which a function allows it to be grabbed, dragged, and placed wherever the use wishes.
+The minnow fish acts as a player sprite in which a function allows it to be grabbed, dragged, and placed wherever the user wishes.
 
 In addition, the interactivity of a button and slider have been included, the button generating a random hex color and assigning it to the fish on the left, and the slider adjusting the size of the fish on the right.
 
