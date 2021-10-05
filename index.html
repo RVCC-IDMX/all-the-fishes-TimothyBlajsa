@@ -193,8 +193,6 @@
 
         Animate.to = function(obj,end) {
             return new Promise((resolve,reject) => {
-                setTimeout(resolve,ms);
-
                 var start = {
                     x : obj.x,
                     y : obj.y
@@ -247,6 +245,25 @@
         Animate.easeOut = x => 1 - (1 - x) * (1 - x);
 
         Animate.easeInOut = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) /2;
+
+        //pause animation
+        // function pause(ms){
+        //     return new Promise((resolve,reject)=> {
+        //         setTimeout(resolve,ms);
+        //     });
+        // }
+
+        //idle animations
+        async function idleSwim1() {
+            await Animate.to(fish1,{
+                x:0,y:0,
+                duration:2000,
+                easing:Animate.easeInOut
+            });
+            await console.log("promise execute");
+            idleSwim1();
+        }
+        idleSwim1();
 
         //My player sprite
         let player = new PIXI.Sprite.from("img/minnow.png");
