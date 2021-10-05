@@ -227,9 +227,26 @@
                     obj.animationID = requestAnimationFrame(loop);
                 }
 
-                cancelAnimationFrame()
-            })
+                cancelAnimationFrame(obj.animationID);
+
+                loop();
+                //end promise
+            });
+            
+        };
+
+        // stop animation
+        Animate.stop = function(obj){
+            cancelAnimationFrame(obj.animationID);
         }
+
+        Animate.linear = x => x;
+
+        Animate.easeIn = x => x * x;
+
+        Animate.easeOut = x => 1 - (1 - x) * (1 - x);
+
+        Animate.easeInOut = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) /2;
 
         //My player sprite
         let player = new PIXI.Sprite.from("img/minnow.png");
