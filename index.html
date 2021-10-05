@@ -184,10 +184,12 @@
             bubble7.y = wobble4;
             bubble8.y = wobble5;
 
-            setTimeout(animationLoop, 1000 / 30);
-
+            //setTimeout(animationLoop, 1000 / 30);
+            requestAnimationFrame(animationLoop);
         }
         animationLoop();
+
+        let Animate = {};
 
         //My player sprite
         let player = new PIXI.Sprite.from("img/minnow.png");
