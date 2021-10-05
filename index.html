@@ -241,111 +241,111 @@
         app.stage.addChild(player);
 
         //Player mouse interaction
-        player.dragging = false;
-        player.on("pointerdown", e => {
-            player.dragging = true;
-            //console.log("clicked");
-        })
-        player.on("pointermove", e => {
-            if (player.dragging) {
-               //console.log("dragging");
-                player.x = e.data.global.x;
-                player.y = e.data.global.y;
-            };
-        })
-        player.on("pointerup", e => {
-            player.dragging = false;
-        })
-        player.on("pointerupoutside", e => {
-            player.dragging = false;
-        })
+        // player.dragging = false;
+        // player.on("pointerdown", e => {
+        //     player.dragging = true;
+        //     //console.log("clicked");
+        // })
+        // player.on("pointermove", e => {
+        //     if (player.dragging) {
+        //        //console.log("dragging");
+        //         player.x = e.data.global.x;
+        //         player.y = e.data.global.y;
+        //     };
+        // })
+        // player.on("pointerup", e => {
+        //     player.dragging = false;
+        // })
+        // player.on("pointerupoutside", e => {
+        //     player.dragging = false;
+        // })
 
         // Color changing button logic
-        let ourButton = new PIXI.Container();
-        ourButton.interactive = true;
+        // let ourButton = new PIXI.Container();
+        // ourButton.interactive = true;
 
-        let buttonBody = new PIXI.Graphics();
-        buttonBody.beginFill(0xEEEEEE);
-        buttonBody.drawRoundedRect(0, 0, 100, 50);
-        buttonBody.alpha = .7;
-        ourButton.addChild(buttonBody);
+        // let buttonBody = new PIXI.Graphics();
+        // buttonBody.beginFill(0xEEEEEE);
+        // buttonBody.drawRoundedRect(0, 0, 100, 50);
+        // buttonBody.alpha = .7;
+        // ourButton.addChild(buttonBody);
 
-        ourButton.body = buttonBody;
+        // ourButton.body = buttonBody;
 
-        let buttonText = new PIXI.Text('Colors');
-        buttonText.anchor.set(.5, .5);
-        buttonText.x = 50;
-        buttonText.y = 25;
-        ourButton.addChild(buttonText);
-        ourButton.text = buttonText;
+        // let buttonText = new PIXI.Text('Colors');
+        // buttonText.anchor.set(.5, .5);
+        // buttonText.x = 50;
+        // buttonText.y = 25;
+        // ourButton.addChild(buttonText);
+        // ourButton.text = buttonText;
 
-        // Add event listeners for color changing button
-        // Click state
-        ourButton.on("pointerdown", e => {
-            let randomColor = Math.floor(Math.random() * 0xFFFFFF);
-            fish2.tint = randomColor;
-            buttonBody.tint = randomColor;
-            buttonText.text = randomColor.toString(16);
-            //console.log(randomColor);
-            //console.log("clicked");
-        });
+        // // Add event listeners for color changing button
+        // // Click state
+        // ourButton.on("pointerdown", e => {
+        //     let randomColor = Math.floor(Math.random() * 0xFFFFFF);
+        //     fish2.tint = randomColor;
+        //     buttonBody.tint = randomColor;
+        //     buttonText.text = randomColor.toString(16);
+        //     //console.log(randomColor);
+        //     //console.log("clicked");
+        // });
 
-        app.stage.addChild(ourButton);
+        // app.stage.addChild(ourButton);
 
-        // Begin Slide logic
-        function makeSlider() {
-            let slideContain = new PIXI.Container();
-            slideContain.interactive = true;
-            slideContain.value = 0;
+        // // Begin Slide logic
+        // function makeSlider() {
+        //     let slideContain = new PIXI.Container();
+        //     slideContain.interactive = true;
+        //     slideContain.value = 0;
 
-            let track = new PIXI.Graphics();
-            track.beginFill(0xCCCCCC);
-            track.drawRoundedRect(200, -10, 300, 20);
-            track.alpha = .7;
+        //     let track = new PIXI.Graphics();
+        //     track.beginFill(0xCCCCCC);
+        //     track.drawRoundedRect(200, -10, 300, 20);
+        //     track.alpha = .7;
 
-            slideContain.addChild(track);
+        //     slideContain.addChild(track);
 
-            let slide = new PIXI.Graphics();
-            slide.interactive = true;
-            slide.beginFill(0xEEEEEE);
-            slide.drawRoundedRect(175, -25, 50, 50);
-            slide.alpha = .95;
+        //     let slide = new PIXI.Graphics();
+        //     slide.interactive = true;
+        //     slide.beginFill(0xEEEEEE);
+        //     slide.drawRoundedRect(175, -25, 50, 50);
+        //     slide.alpha = .95;
 
-            slideContain.addChild(slide);
+        //     slideContain.addChild(slide);
 
-            // Listeners for dragging interaction
-            slide.dragging = false;
-            slide.on("pointerdown", e => {
-                slide.dragging = true;
-                //console.log('click');
-            });
+        //     // Listeners for dragging interaction
+        //     slide.dragging = false;
+        //     slide.on("pointerdown", e => {
+        //         slide.dragging = true;
+        //         //console.log('click');
+        //     });
 
-            slide.on("pointermove", e => {
-                if (slide.dragging) {
-                    let newX = e.data.global.x - slideContain.getGlobalPosition().x - 200;
-                    let newY = e.data.global.y - slideContain.getGlobalPosition().y;
+        //     slide.on("pointermove", e => {
+        //         if (slide.dragging) {
+        //             let newX = e.data.global.x - slideContain.getGlobalPosition().x - 200;
+        //             let newY = e.data.global.y - slideContain.getGlobalPosition().y;
 
-                    if (newX > track.width) newX = track.width;
-                    if (newX < 0) newX = 0;
+        //             if (newX > track.width) newX = track.width;
+        //             if (newX < 0) newX = 0;
 
-                    slideContain.value = newX / track.width;
-                    slide.x = newX;
-                    fish1.scale.set(newX / 1200);
-                    //console.log(slideContain.value);
-                }
-            });
-            slide.on("pointerup", e => {
-                slide.dragging = false;
-            });
-            slide.on("pointerupoutside", e => {
-                slide.dragging = false;
-            });
-            return slideContain;
-        };
+        //             slideContain.value = newX / track.width;
+        //             slide.x = newX;
+        //             fish1.scale.set(newX / 1200);
+        //             //console.log(slideContain.value);
+        //         }
+        //     });
+        //     slide.on("pointerup", e => {
+        //         slide.dragging = false;
+        //     });
+        //     slide.on("pointerupoutside", e => {
+        //         slide.dragging = false;
+        //     });
+        //     return slideContain;
+        // };
 
-        // Add slider to stage
-        let slideContain = makeSlider();
-        app.stage.addChild(slideContain);
+        // // Add slider to stage
+        // let slideContain = makeSlider();
+        // app.stage.addChild(slideContain);
 
     </script>
     <p>by Timothy Blajsa</p>
