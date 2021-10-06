@@ -171,7 +171,7 @@
             //fish3.y = wobble3;
             //kelp1.x = sway;
             //kelp2.x = sway2;
-            school.x = swim;
+            //school.x = swim;
 
             //Bubble animations
             bubble1.y = wobble4;
@@ -304,6 +304,20 @@
             idleSwim3();
         }
         idleSwim3();
+
+        async function backgroundFish(){
+            await Animate.to(school,{
+                x:-1000,y:55,
+                duration:3000,
+                
+            });
+            await Animate.to(school,{
+                x:2000,y:55,
+                duration:3000,
+            });
+            backgroundFish();
+        }
+        backgroundFish();
 
         //animate kelp
         async function sway(){
