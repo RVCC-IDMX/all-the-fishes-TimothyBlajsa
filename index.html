@@ -308,18 +308,32 @@
         //animate kelp
         async function sway(){
             await Animate.to(kelp1,{
-                x:50,y:60,
+                x:50,y:0,
                 duration:5000,
                 easing:Animate.easeInOut
             });
             await Animate.to(kelp1,{
-                x:20,y:60,
+                x:20,y:0,
                 duration:5000,
                 easing:Animate.easeInOut
             });
             sway();
         }
         sway();
+        async function sway2(){
+            await Animate.to(kelp2,{
+                x:50,y:0,
+                duration:4000,
+                easing:Animate.easeInOut
+            });
+            await Animate.to(kelp2,{
+                x:30,y:0,
+                duration:4000,
+                easing:Animate.easeInOut
+            });
+            sway2();
+        }
+        sway2();
 
         //My player sprite
         let player = new PIXI.Sprite.from("img/minnow.png");
