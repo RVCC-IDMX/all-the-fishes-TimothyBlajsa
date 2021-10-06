@@ -167,8 +167,8 @@
             let swim = Math.sin(time / 1500) * 1000;
 
             //fish1.y = wobble1;
-            fish2.y = wobble2;
-            fish3.y = wobble3;
+           // fish2.y = wobble2;
+            //fish3.y = wobble3;
             kelp1.x = sway;
             kelp2.x = sway2;
             school.x = swim;
@@ -267,9 +267,40 @@
                 easing:Animate.easeInOut
             });
             //await console.log("promise execute");
+            
             idleSwim1();
         }
         idleSwim1();
+
+        async function idleSwim2() {
+            await Animate.to(fish2,{
+                x:30,y:20,
+                duration:2000,
+                easing:Animate.easeInOut
+            });
+            await Animate.to(fish2,{
+                x:30,y:60,
+                duration:2000,
+                easing:Animate.easeInOut
+            });
+            idleSwim2();
+        }
+        idleSwim2();
+
+        async function idleSwim3(){
+            await Animate.to(fish3,{
+                x:350,y:0,
+                duration:3000,
+                easing:Animate.easeInOut
+            });
+            await Animate.to(fish3,{
+                x:350,y:20,
+                duration:3000,
+                easing:Animate.easeInOut
+            });
+            idleSwim3();
+        }
+        idleSwim3();
 
         //My player sprite
         let player = new PIXI.Sprite.from("img/minnow.png");
