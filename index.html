@@ -166,7 +166,7 @@
             let sway2 = Math.cos(time / 1200) * 10;
             let swim = Math.sin(time / 1500) * 1000;
 
-            fish1.y = wobble1;
+            //fish1.y = wobble1;
             fish2.y = wobble2;
             fish3.y = wobble3;
             kelp1.x = sway;
@@ -220,7 +220,7 @@
                         return (1 - n) * a + n * b;
                     }
 
-                    obj.x = lerp(start.x,end.xdelta);
+                    obj.x = lerp(start.x,end.x,delta);
                     obj.y = lerp(start.y,end.y,delta);
                     obj.animationID = requestAnimationFrame(loop);
                 }
@@ -238,6 +238,7 @@
             cancelAnimationFrame(obj.animationID);
         }
 
+        //ease
         Animate.linear = x => x;
 
         Animate.easeIn = x => x * x;
@@ -256,11 +257,16 @@
         //idle animations
         async function idleSwim1() {
             await Animate.to(fish1,{
-                x:0,y:0,
+                x:420,y:20,
                 duration:2000,
                 easing:Animate.easeInOut
             });
-            await console.log("promise execute");
+            await Animate.to(fish1,{
+                x:420,y:50,
+                duration:2000,
+                easing:Animate.easeInOut
+            });
+            //await console.log("promise execute");
             idleSwim1();
         }
         idleSwim1();
