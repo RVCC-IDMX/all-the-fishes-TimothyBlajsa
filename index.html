@@ -162,15 +162,15 @@
             let wobble3 = Math.sin(time / 1500) * 20;
             let wobble4 = Math.sin(time / 500) * 5;
             let wobble5 = Math.cos(time / 500) * 5;
-            let sway = Math.sin(time / 1500) * 10;
+            //let sway = Math.sin(time / 1500) * 10;
             let sway2 = Math.cos(time / 1200) * 10;
             let swim = Math.sin(time / 1500) * 1000;
 
             //fish1.y = wobble1;
            // fish2.y = wobble2;
             //fish3.y = wobble3;
-            kelp1.x = sway;
-            kelp2.x = sway2;
+            //kelp1.x = sway;
+            //kelp2.x = sway2;
             school.x = swim;
 
             //Bubble animations
@@ -255,16 +255,17 @@
         // }
 
         //idle animations
+        //animate fish1
         async function idleSwim1() {
             await Animate.to(fish1,{
                 x:420,y:20,
                 duration:3000,
-                easing:Animate.easeInOut
+                //easing:Animate.easeInOut
             });
             await Animate.to(fish1,{
                 x:420,y:50,
                 duration:2000,
-                easing:Animate.easeInOut
+                //easing:Animate.easeInOut
             });
             //await console.log("promise execute");
             
@@ -272,6 +273,7 @@
         }
         idleSwim1();
 
+        //animate fish2
         async function idleSwim2() {
             await Animate.to(fish2,{
                 x:30,y:20,
@@ -287,6 +289,7 @@
         }
         idleSwim2();
 
+        //animate fish3
         async function idleSwim3(){
             await Animate.to(fish3,{
                 x:350,y:0,
@@ -301,6 +304,22 @@
             idleSwim3();
         }
         idleSwim3();
+
+        //animate kelp
+        async function sway(){
+            await Animate.to(kelp1,{
+                x:50,y:60,
+                duration:5000,
+                easing:Animate.easeInOut
+            });
+            await Animate.to(kelp1,{
+                x:20,y:60,
+                duration:5000,
+                easing:Animate.easeInOut
+            });
+            sway();
+        }
+        sway();
 
         //My player sprite
         let player = new PIXI.Sprite.from("img/minnow.png");
