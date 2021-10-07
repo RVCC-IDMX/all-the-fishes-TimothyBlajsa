@@ -292,6 +292,21 @@
         }
         idleSwim1();
 
+        fish1.interactive = true;
+        fish1.on('pointerdown', e => {
+            async function feed(){
+                await Animate.to(fish1,{
+                    x:420,y:-150,
+                    duration:3000,
+                    easing:Animate.easeInOut
+                });
+                await pause(1000);
+                feed()
+                idleSwim1()
+            };
+            feed()
+        })
+
         //animate fish2
         async function idleSwim2() {
             await Animate.to(fish2,{
@@ -426,6 +441,7 @@
         function rotation(){
             player.rotation += .05;
         }
+
 
         //Player mouse interaction
         // player.dragging = false;
