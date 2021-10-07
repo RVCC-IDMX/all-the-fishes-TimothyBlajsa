@@ -279,8 +279,16 @@
         }
         idleSwim1();
 
+        let fishFood = new PIXI.Graphics();
+        fishFood.beginFill(0x964B00);
+        fishFood.drawCircle(450,25,2,50);
+        app.stage.addChild(fishFood);
+        fishFood.visible = false;
+
         fish1.interactive = true;
         fish1.on('pointerdown', e => {
+            fishFood.visible = true;
+            fishFood.alpha = 1;
             async function feed() {
                 await Animate.to(fish1, {
                     x: 420, y: -150,
@@ -290,7 +298,9 @@
                 await pause(1000);
                 feed()
                 idleSwim1()
+                fishFood.alpha = 0;
             };
+            
             feed()
         })
 
