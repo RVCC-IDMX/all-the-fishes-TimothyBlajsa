@@ -153,6 +153,20 @@
         bubble8.x = 610;
         app.stage.addChild(bubble8);
 
+        //My player sprite
+        let player = new PIXI.Sprite.from("img/minnow.png");
+        player.scale.set(.05);
+        //player.anchor.set(0);
+        //player.x = app.view.width / 2;
+        //player.y = app.view.height / 2;
+        player.x = 325;
+        player.y = 175;
+        //player.interactive = true;
+        app.stage.addChild(player);
+        
+        background.interactive = true;
+        background.on('mousedown', moveTo);
+
         //ANimation loop function
         function animationLoop() {
             let time = Date.now();
@@ -172,6 +186,7 @@
             //kelp1.x = sway;
             //kelp2.x = sway2;
             //school.x = swim;
+            //player.y = wobble3;
 
             //Bubble animations
             bubble1.y = wobble4;
@@ -252,11 +267,11 @@
         Animate.easeInOut = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) /2;
 
         //pause animation
-        // function pause(ms){
-        //     return new Promise((resolve,reject)=> {
-        //         setTimeout(resolve,ms);
-        //     });
-        // }
+        function pause(ms){
+            return new Promise((resolve,reject)=> {
+                setTimeout(resolve,ms);
+            });
+        }
 
         //idle animations
         //animate fish1
@@ -363,15 +378,54 @@
         // }
         // makeColor();
         // console.log(randomColor);
+        
 
-        //My player sprite
-        let player = new PIXI.Sprite.from("img/minnow.png");
-        player.scale.set(.05);
-        //player.anchor.set(0);
-        player.x = app.view.width / 2;
-        player.y = app.view.height / 2;
-        player.interactive = true;
-        app.stage.addChild(player);
+        
+        
+        
+
+        async function playerIdle(){
+            await Animate.to(player,{
+                x: 325,
+                y: 150,
+                duration: 3000,
+                easing:Animate.easeInOut
+            })
+            //await pause(2000);
+            await Animate.to(player,{
+                x: 325,
+                y: 200,
+                duration: 3000,
+                easing:Animate.easeInOut
+            })
+            playerIdle()
+        }
+        playerIdle()
+
+        async function moveTo(e, data){
+            //player.position.x = e.data.global.x;
+            //player.position.y = e.data.global.y;
+            await Animate.to(player,{
+                x: e.data.global.x,
+                y: e.data.global.y,
+                duration:2000,
+                easing:Animate.easeInOut
+            });
+            await pause(400);
+             player.width = 20;
+             await pause(100);
+             player.width = 45.6;
+            moveTo();
+            
+            playerIdle();
+           
+        }
+        moveTo();
+        //playerIdle();
+
+        function rotation(){
+            player.rotation += .05;
+        }
 
         //Player mouse interaction
         // player.dragging = false;
