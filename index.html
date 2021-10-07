@@ -284,6 +284,7 @@
                 duration:2000,
                 easing:Animate.easeInOut
             });
+            fish2.tint = (Math.floor(Math.random() * 0xFFFFFF));
             await Animate.to(fish2,{
                 x:30,y:60,
                 duration:2000,
@@ -356,7 +357,12 @@
         }
         sway2();
 
-
+        // function makeColor(){
+        //     let randomColor = Math.floor(Math.random() * 0xFFFFFF);
+        //     return randomColor;
+        // }
+        // makeColor();
+        // console.log(randomColor);
 
         //My player sprite
         let player = new PIXI.Sprite.from("img/minnow.png");
