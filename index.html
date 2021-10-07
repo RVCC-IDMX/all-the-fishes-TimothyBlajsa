@@ -314,12 +314,14 @@
             await Animate.to(school,{
                 x:-1000,y:55,
                 duration:3000,
-                
             });
+            await school.scale.set(.25);
+            await school.alpha == .95;
             await Animate.to(school,{
                 x:2000,y:55,
-                duration:3000,
+                duration:2100,
             });
+            await school.scale.set(.10);
             backgroundFish();
         }
         backgroundFish();
@@ -353,6 +355,8 @@
             sway2();
         }
         sway2();
+
+
 
         //My player sprite
         let player = new PIXI.Sprite.from("img/minnow.png");
