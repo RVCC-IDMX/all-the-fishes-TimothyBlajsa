@@ -163,7 +163,7 @@
         player.y = 175;
         //player.interactive = true;
         app.stage.addChild(player);
-        
+
         background.interactive = true;
         background.on('mousedown', moveTo);
 
@@ -181,7 +181,7 @@
             let swim = Math.sin(time / 1500) * 1000;
 
             //fish1.y = wobble1;
-           // fish2.y = wobble2;
+            // fish2.y = wobble2;
             //fish3.y = wobble3;
             //kelp1.x = sway;
             //kelp2.x = sway2;
@@ -207,13 +207,13 @@
         let Animate = {};
 
         //animate function
-        Animate.to = function(obj,end) {
-            return new Promise((resolve,reject) => {
+        Animate.to = function (obj, end) {
+            return new Promise((resolve, reject) => {
 
                 //initial state for animated objects
                 var start = {
-                    x : obj.x,
-                    y : obj.y
+                    x: obj.x,
+                    y: obj.y
                 }
 
                 //set defaults
@@ -221,12 +221,12 @@
 
                 var startTime = Date.now();
 
-                function loop(){
+                function loop() {
                     let ticker = Date.now() - startTime;
-                    let delta = ticker/end.duration;
+                    let delta = ticker / end.duration;
 
                     //caluclate delta
-                    if (delta >= 1){
+                    if (delta >= 1) {
                         obj.x = end.x;
                         obj.y = end.y;
                         console.log("done");
@@ -235,12 +235,12 @@
                     }
 
                     //interpolation
-                    let lerp = (a,b,n) => {
+                    let lerp = (a, b, n) => {
                         return (1 - n) * a + n * b;
                     }
 
-                    obj.x = lerp(start.x,end.x,delta);
-                    obj.y = lerp(start.y,end.y,delta);
+                    obj.x = lerp(start.x, end.x, delta);
+                    obj.y = lerp(start.y, end.y, delta);
                     obj.animationID = requestAnimationFrame(loop);
                 }
 
@@ -249,11 +249,11 @@
                 loop();
                 //end promise
             });
-            
+
         };
 
         // stop animation
-        Animate.stop = function(obj){
+        Animate.stop = function (obj) {
             cancelAnimationFrame(obj.animationID);
         }
 
@@ -264,41 +264,41 @@
 
         Animate.easeOut = x => 1 - (1 - x) * (1 - x);
 
-        Animate.easeInOut = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) /2;
+        Animate.easeInOut = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
 
         //pause animation
-        function pause(ms){
-            return new Promise((resolve,reject)=> {
-                setTimeout(resolve,ms);
+        function pause(ms) {
+            return new Promise((resolve, reject) => {
+                setTimeout(resolve, ms);
             });
         }
 
         //idle animations
         //animate fish1
         async function idleSwim1() {
-            await Animate.to(fish1,{
-                x:420,y:20,
-                duration:3000,
+            await Animate.to(fish1, {
+                x: 420, y: 20,
+                duration: 3000,
                 //easing:Animate.easeInOut
             });
-            await Animate.to(fish1,{
-                x:420,y:50,
-                duration:2000,
+            await Animate.to(fish1, {
+                x: 420, y: 50,
+                duration: 2000,
                 //easing:Animate.easeInOut
             });
             //await console.log("promise execute");
-            
+
             idleSwim1();
         }
         idleSwim1();
 
         fish1.interactive = true;
         fish1.on('pointerdown', e => {
-            async function feed(){
-                await Animate.to(fish1,{
-                    x:420,y:-150,
-                    duration:3000,
-                    easing:Animate.easeInOut
+            async function feed() {
+                await Animate.to(fish1, {
+                    x: 420, y: -150,
+                    duration: 3000,
+                    easing: Animate.easeInOut
                 });
                 await pause(1000);
                 feed()
@@ -309,48 +309,48 @@
 
         //animate fish2
         async function idleSwim2() {
-            await Animate.to(fish2,{
-                x:30,y:20,
-                duration:2000,
-                easing:Animate.easeInOut
+            await Animate.to(fish2, {
+                x: 30, y: 20,
+                duration: 2000,
+                easing: Animate.easeInOut
             });
             fish2.tint = (Math.floor(Math.random() * 0xFFFFFF));
-            await Animate.to(fish2,{
-                x:30,y:60,
-                duration:2000,
-                easing:Animate.easeInOut
+            await Animate.to(fish2, {
+                x: 30, y: 60,
+                duration: 2000,
+                easing: Animate.easeInOut
             });
             idleSwim2();
         }
         idleSwim2();
 
         //animate fish3
-        async function idleSwim3(){
-            await Animate.to(fish3,{
-                x:350,y:0,
-                duration:3000,
-                easing:Animate.easeInOut
+        async function idleSwim3() {
+            await Animate.to(fish3, {
+                x: 350, y: 0,
+                duration: 3000,
+                easing: Animate.easeInOut
             });
             await fish3.scale.set(.1);
-            await Animate.to(fish3,{
-                x:350,y:20,
-                duration:3000,
-                easing:Animate.easeInOut
+            await Animate.to(fish3, {
+                x: 350, y: 20,
+                duration: 3000,
+                easing: Animate.easeInOut
             });
             idleSwim3();
         }
         idleSwim3();
 
-        async function backgroundFish(){
-            await Animate.to(school,{
-                x:-1000,y:55,
-                duration:3000,
+        async function backgroundFish() {
+            await Animate.to(school, {
+                x: -1000, y: 55,
+                duration: 3000,
             });
             await school.scale.set(.25);
             await school.alpha == .95;
-            await Animate.to(school,{
-                x:2000,y:55,
-                duration:2100,
+            await Animate.to(school, {
+                x: 2000, y: 55,
+                duration: 2100,
             });
             await school.scale.set(.10);
             backgroundFish();
@@ -358,30 +358,30 @@
         backgroundFish();
 
         //animate kelp
-        async function sway(){
-            await Animate.to(kelp1,{
-                x:50,y:0,
-                duration:5000,
-                easing:Animate.easeInOut
+        async function sway() {
+            await Animate.to(kelp1, {
+                x: 50, y: 0,
+                duration: 5000,
+                easing: Animate.easeInOut
             });
-            await Animate.to(kelp1,{
-                x:20,y:0,
-                duration:5000,
-                easing:Animate.easeInOut
+            await Animate.to(kelp1, {
+                x: 20, y: 0,
+                duration: 5000,
+                easing: Animate.easeInOut
             });
             sway();
         }
         sway();
-        async function sway2(){
-            await Animate.to(kelp2,{
-                x:50,y:0,
-                duration:4000,
-                easing:Animate.easeInOut
+        async function sway2() {
+            await Animate.to(kelp2, {
+                x: 50, y: 0,
+                duration: 4000,
+                easing: Animate.easeInOut
             });
-            await Animate.to(kelp2,{
-                x:30,y:0,
-                duration:4000,
-                easing:Animate.easeInOut
+            await Animate.to(kelp2, {
+                x: 30, y: 0,
+                duration: 4000,
+                easing: Animate.easeInOut
             });
             sway2();
         }
@@ -393,52 +393,52 @@
         // }
         // makeColor();
         // console.log(randomColor);
-        
 
-        
-        
-        
 
-        async function playerIdle(){
-            await Animate.to(player,{
+
+
+
+
+        async function playerIdle() {
+            await Animate.to(player, {
                 x: 325,
                 y: 150,
                 duration: 3000,
-                easing:Animate.easeInOut
+                easing: Animate.easeInOut
             })
             //await pause(2000);
-            await Animate.to(player,{
+            await Animate.to(player, {
                 x: 325,
                 y: 200,
                 duration: 3000,
-                easing:Animate.easeInOut
+                easing: Animate.easeInOut
             })
             playerIdle()
         }
         playerIdle()
 
-        async function moveTo(e, data){
+        async function moveTo(e, data) {
             //player.position.x = e.data.global.x;
             //player.position.y = e.data.global.y;
-            await Animate.to(player,{
+            await Animate.to(player, {
                 x: e.data.global.x,
                 y: e.data.global.y,
-                duration:2000,
-                easing:Animate.easeInOut
-            });
+                duration: 2000,
+                easing: Animate.easeInOut
+            }); try { } catch (error) { console.log(error) }
             await pause(400);
-             player.width = 20;
-             await pause(100);
-             player.width = 45.6;
+            player.width = 20;
+            await pause(100);
+            player.width = 45.6;
             moveTo();
-            
+
             playerIdle();
-           
+
         }
         moveTo();
         //playerIdle();
 
-        function rotation(){
+        function rotation() {
             player.rotation += .05;
         }
 
