@@ -203,16 +203,21 @@
                     y: obj.y
                 }
 
-                //set defaults
+                //set defaults for duration and easing
                 if (end.duration == undefined) end.duration = 0;
+                if (end.easing == undefined) end.easing = Animate.linear;
 
+                //the start time of the animation
                 var startTime = Date.now();
 
+                //new animation loop
                 function loop() {
+
+                    //calculate the delta variable, time lapsed since start
                     let ticker = Date.now() - startTime;
                     let delta = ticker / end.duration;
 
-                    //caluclate delta
+                    //if animation done, end
                     if (delta >= 1) {
                         obj.x = end.x;
                         obj.y = end.y;
@@ -221,30 +226,31 @@
                         return;
                     }
 
-                    //interpolation
+                    //interpolation function
                     let lerp = (a, b, n) => {
                         return (1 - n) * a + n * b;
                     }
-
+                    //interpolate x and y coordinates, start loop
                     obj.x = lerp(start.x, end.x, delta);
                     obj.y = lerp(start.y, end.y, delta);
                     obj.animationID = requestAnimationFrame(loop);
                 }
 
+                //clear animation ID to avoid competing loops
                 cancelAnimationFrame(obj.animationID);
-
+                //begin loop proper
                 loop();
                 //end promise
             });
 
         };
 
-        // stop animation
+        // stop animation function
         Animate.stop = function (obj) {
             cancelAnimationFrame(obj.animationID);
         }
 
-        //ease
+        //ease functions
         Animate.linear = x => x;
 
         Animate.easeIn = x => x * x;
@@ -253,14 +259,14 @@
 
         Animate.easeInOut = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
 
-        //pause animation
+        //pause animation function
         function pause(ms) {
             return new Promise((resolve, reject) => {
                 setTimeout(resolve, ms);
             });
         }
 
-        //idle animations
+        //idle animations for sprites
         //animate fish1
         async function idleSwim1() {
             await Animate.to(fish1, {
@@ -278,7 +284,7 @@
             idleSwim1();
         }
         idleSwim1();
-
+        //create fish food graphic
         let fishFood = new PIXI.Graphics();
         fishFood.beginFill(0x964B00);
         fishFood.drawCircle(450,10,2,50); //450,25,2,50 with y -150
@@ -427,6 +433,7 @@
             //player.position.x = e.data.global.x;
             //player.position.y = e.data.global.y;
             await Animate.to(player, {
+                
                 x: e.data.global.x,
                 y: e.data.global.y,
                 duration: 2000,
