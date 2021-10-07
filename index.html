@@ -171,33 +171,20 @@
         function animationLoop() {
             let time = Date.now();
 
-            let wobble1 = Math.sin(time / 1000) * 20;
-            let wobble2 = Math.cos(time / 1000) * 20;
-            let wobble3 = Math.sin(time / 1500) * 20;
-            let wobble4 = Math.sin(time / 500) * 5;
-            let wobble5 = Math.cos(time / 500) * 5;
+            let bubbly1 = Math.sin(time / 500) * 5;
+            let bubbly2 = Math.cos(time / 500) * 5;
             //let sway = Math.sin(time / 1500) * 10;
-            let sway2 = Math.cos(time / 1200) * 10;
-            let swim = Math.sin(time / 1500) * 1000;
-
-            //fish1.y = wobble1;
-            // fish2.y = wobble2;
-            //fish3.y = wobble3;
-            //kelp1.x = sway;
-            //kelp2.x = sway2;
-            //school.x = swim;
-            //player.y = wobble3;
-
+            
             //Bubble animations
-            bubble1.y = wobble4;
-            bubble2.y = wobble5;
-            bubble3.y = wobble5;
-            bubble4.y = wobble4;
+            bubble1.y = bubbly1;
+            bubble2.y = bubbly2;
+            bubble3.y = bubbly2;
+            bubble4.y = bubbly1;
 
-            bubble5.y = wobble5;
-            bubble6.y = wobble4;
-            bubble7.y = wobble4;
-            bubble8.y = wobble5;
+            bubble5.y = bubbly2;
+            bubble6.y = bubbly1;
+            bubble7.y = bubbly1;
+            bubble8.y = bubbly2;
 
             //setTimeout(animationLoop, 1000 / 30);
             requestAnimationFrame(animationLoop);
