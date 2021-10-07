@@ -281,24 +281,30 @@
 
         let fishFood = new PIXI.Graphics();
         fishFood.beginFill(0x964B00);
-        fishFood.drawCircle(450,25,2,50);
+        fishFood.drawCircle(450,10,2,50); //450,25,2,50 with y -150
         app.stage.addChild(fishFood);
         fishFood.visible = false;
+        fishFood.z = 0;
 
+        //container.sortableChildren = true;
         fish1.interactive = true;
         fish1.on('pointerdown', e => {
             fishFood.visible = true;
             fishFood.alpha = 1;
+            fish1.pivot.x = 500;
+            fish1.pivot.y = 1200;
+            fish1.rotation = 1.5;
             async function feed() {
                 await Animate.to(fish1, {
-                    x: 420, y: -150,
-                    duration: 3000,
+                    x: 420, y: -70,
+                    duration: 2000,
                     easing: Animate.easeInOut
                 });
                 await pause(1000);
                 feed()
                 idleSwim1()
                 fishFood.alpha = 0;
+                fish1.rotation = 0;
             };
             
             feed()
@@ -323,12 +329,14 @@
 
         //animate fish3
         async function idleSwim3() {
+            fish3.rotation == 1.5;
             await Animate.to(fish3, {
                 x: 350, y: 0,
                 duration: 3000,
                 easing: Animate.easeInOut
             });
             await fish3.scale.set(.1);
+            
             await Animate.to(fish3, {
                 x: 350, y: 20,
                 duration: 3000,
