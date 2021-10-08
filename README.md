@@ -1,4 +1,4 @@
-# The Surreal Aquarium
+# The Surreal Aquarium v1.3
 ------------------------
 ## Overview
 USING PIXI JS
@@ -15,11 +15,15 @@ Sprites include...
 - kelp
 - bubble
 
-The various sprites are animated along both sine and cosine waves in order to create movement in the scene.
+The balloon sprites are animated along both sine and cosine waves in order to create movement in the scene.
 
-The minnow fish acts as a player sprite in which a function allows it to be grabbed, dragged, and placed wherever the user wishes.
+The remaining sprites have been updated using async functions and promises.
 
-In addition, the interactivity of a button and slider have been included, the button generating a random hex color and assigning it to the fish on the left, and the slider adjusting the size of the fish on the right.
+The minnow fish acts as a player sprite in which a function allows it to move to wherever the user clicks on the screen.
+
+The fish to the left idley cycles through random colors as it bobs.
+
+The fish to the right bobs until clicked in which a food pellet is created and it swims up and eats it, then returning to its base state.
 
 ## Author Testimony
 This experience, being my first time using PIXIJS, was overall very smooth. Following the tutorial was enough to give me the basic toolset to inspire a full scene. I was able to achieve the resulting scene with what was taught in the tutorial. There were no problems during this process, just general troubleshooting and finetuning individual elements, until I was satisfied with the end product. In addition, I was able to work around certain things, such as a translation movement by adjusting the values of the sine wave, thus giving the appearance of a horizontal movement; to mimic the feel of depth, I adjusted the tints of the image elements.
