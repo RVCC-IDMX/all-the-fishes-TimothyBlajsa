@@ -24,7 +24,7 @@
             audio.play();
         });
 
-        //The App
+        // The App
         var app = new PIXI.Application({
             width: 640,
             height: 400,
@@ -32,51 +32,51 @@
             backgroundColor: 0x000000
         });
 
-        //Add view to the document
+        // Add view to the document
         document.body.appendChild(app.view);
 
-        //My First Sprite
+        // My First Sprite
         let fish1 = PIXI.Sprite.from("img/bigfish.png");
 
-        //Change sprite coordinates
+        // Change sprite coordinates
         fish1.x = 420;
         fish1.y = 0;
 
-        //Change sprite size
+        // Change sprite size
         fish1.scale.set(.095);
 
-        //Add it to the stage
+        // Add it to the stage
         app.stage.addChild(fish1);
 
-        //My Second Sprite
+        // My Second Sprite
         let fish2 = PIXI.Sprite.from("img/smallfish.png");
 
-        //Change sprite2 size
+        // Change sprite2 size
         fish2.scale.set(.07);
         fish2.x = 30;
 
-        //Add it to the stage
+        // Add it to the stage
         app.stage.addChild(fish2);
 
-        //My background sprite
+        // My background sprite
         let background = PIXI.Sprite.from("img/background.jpg");
         background.scale.set(.7);
         app.stage.addChild(background);
 
-        //My kelp sprite
+        // My kelp sprite
         let kelp1 = PIXI.Sprite.from("img/kelp.png");
         kelp1.scale.set(.5);
         kelp1.tint = 0x212f55;
         app.stage.addChild(kelp1);
 
-        //My coral sprite
+        // My coral sprite
         let coral = PIXI.Sprite.from("img/coral.png");
         coral.x = 300;
         coral.scale.set(.5);
         coral.tint = 0x253152;
         app.stage.addChild(coral);
 
-        //My school sprite
+        // My school sprite
         let school = PIXI.Sprite.from("img/school.png");
         school.tint = 0x090c14;
         school.x = 200;
@@ -84,13 +84,13 @@
         school.scale.set(.15);
         app.stage.addChild(school);
 
-        //My second kelp sprite
+        // My second kelp sprite
         let kelp2 = PIXI.Sprite.from("img/kelp.png");
         kelp2.scale.set(.675);
         kelp2.y = .4;
         app.stage.addChild(kelp2);
 
-        //My second coral sprite
+        // My second coral sprite
         let coral2 = PIXI.Sprite.from("img/coral.png");
         coral2.scale.set(.8);
         coral2.y = 20;
@@ -98,7 +98,7 @@
         coral2.tint = 0x5676c7;
         app.stage.addChild(coral2);
 
-        //My third fish sprite
+        // My third fish sprite
         let fish3 = PIXI.Sprite.from("img/betta.png");
         fish3.scale.set(.1);
         fish3.x = 350;
@@ -106,14 +106,14 @@
         fish3.tint = 0x2e3f6b;
         app.stage.addChild(fish3);
 
-        //My container for the first two fish sprites
+        // My container for the first two fish sprites
         var my_container = new PIXI.Container();
         my_container.addChild(fish1);
         my_container.addChild(fish2);
         my_container.y = 100;
         app.stage.addChild(my_container);
 
-        //My sprite for the bubbles
+        // My sprite for the bubbles
         let bubble1 = new PIXI.Sprite.from("img/bubble.png");
         bubble1.scale.set(.01);
         app.stage.addChild(bubble1);
@@ -153,29 +153,27 @@
         bubble8.x = 610;
         app.stage.addChild(bubble8);
 
-        //My player sprite
+        // My player sprite
         let player = new PIXI.Sprite.from("img/minnow.png");
         player.scale.set(.05);
-        //player.anchor.set(0);
-        //player.x = app.view.width / 2;
-        //player.y = app.view.height / 2;
         player.x = 325;
         player.y = 175;
-        //player.interactive = true;
         app.stage.addChild(player);
 
+        // turn background interactive
         background.interactive = true;
+        // call moveTo function when screen is clicked
         background.on('mousedown', moveTo);
 
-        //ANimation loop function
+        // ANimation loop function
         function animationLoop() {
             let time = Date.now();
 
             let bubbly1 = Math.sin(time / 500) * 5;
             let bubbly2 = Math.cos(time / 500) * 5;
             //let sway = Math.sin(time / 1500) * 10;
-            
-            //Bubble animations
+
+            // Bubble animations
             bubble1.y = bubbly1;
             bubble2.y = bubbly2;
             bubble3.y = bubbly2;
@@ -193,31 +191,31 @@
 
         let Animate = {};
 
-        //animate function
+        // animate function
         Animate.to = function (obj, end) {
             return new Promise((resolve, reject) => {
 
-                //initial state for animated objects
+                // initial state for animated objects
                 var start = {
                     x: obj.x,
                     y: obj.y
                 }
 
-                //set defaults for duration and easing
+                // set defaults for duration and easing
                 if (end.duration == undefined) end.duration = 0;
                 if (end.easing == undefined) end.easing = Animate.linear;
 
-                //the start time of the animation
+                // the start time of the animation
                 var startTime = Date.now();
 
-                //new animation loop
+                // new animation loop
                 function loop() {
 
-                    //calculate the delta variable, time lapsed since start
+                    // calculate the delta variable, time lapsed since start
                     let ticker = Date.now() - startTime;
                     let delta = ticker / end.duration;
 
-                    //if animation done, end
+                    // if animation done, end
                     if (delta >= 1) {
                         obj.x = end.x;
                         obj.y = end.y;
@@ -226,21 +224,21 @@
                         return;
                     }
 
-                    //interpolation function
+                    // interpolation function
                     let lerp = (a, b, n) => {
                         return (1 - n) * a + n * b;
                     }
-                    //interpolate x and y coordinates, start loop
+                    // interpolate x and y coordinates, start loop
                     obj.x = lerp(start.x, end.x, delta);
                     obj.y = lerp(start.y, end.y, delta);
                     obj.animationID = requestAnimationFrame(loop);
                 }
 
-                //clear animation ID to avoid competing loops
+                // clear animation ID to avoid competing loops
                 cancelAnimationFrame(obj.animationID);
-                //begin loop proper
+                // begin loop proper
                 loop();
-                //end promise
+                // end promise
             });
 
         };
@@ -259,47 +257,49 @@
 
         Animate.easeInOut = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
 
-        //pause animation function
+        // pause animation function
         function pause(ms) {
             return new Promise((resolve, reject) => {
                 setTimeout(resolve, ms);
             });
         }
 
-        //idle animations for sprites
-        //animate fish1
+        // idle animations for sprites
+        // animate fish1
         async function idleSwim1() {
             await Animate.to(fish1, {
                 x: 420, y: 20,
                 duration: 3000,
-                //easing:Animate.easeInOut
+                easing: Animate.easeInOut
             });
             await Animate.to(fish1, {
                 x: 420, y: 50,
                 duration: 2000,
-                //easing:Animate.easeInOut
+                easing: Animate.easeInOut
             });
-            //await console.log("promise execute");
-
             idleSwim1();
         }
         idleSwim1();
-        //create fish food graphic
+
+        // create fish food graphic
         let fishFood = new PIXI.Graphics();
         fishFood.beginFill(0x964B00);
-        fishFood.drawCircle(450,10,2,50); //450,25,2,50 with y -150
+        fishFood.drawCircle(450, 10, 2, 50); //450,25,2,50 with y -150
         app.stage.addChild(fishFood);
         fishFood.visible = false;
-        fishFood.z = 0;
 
-        //container.sortableChildren = true;
+        // make fish1 interactive
         fish1.interactive = true;
+
+        // fish1 interaction function, rotation change
         fish1.on('pointerdown', e => {
             fishFood.visible = true;
             fishFood.alpha = 1;
             fish1.pivot.x = 500;
             fish1.pivot.y = 1200;
             fish1.rotation = 1.5;
+
+            // feeding animation
             async function feed() {
                 await Animate.to(fish1, {
                     x: 420, y: -70,
@@ -307,17 +307,15 @@
                     easing: Animate.easeInOut
                 });
                 await pause(1000);
-                feed()
-                idleSwim1()
+                feed();
+                idleSwim1();
                 fishFood.alpha = 0;
-                //await pause(100);
                 fish1.rotation = 0;
             };
-            //fish1.rotation - 0;
-            feed()
+            feed();
         })
 
-        //animate fish2
+        // animate fish2, cycle random tint colors
         async function idleSwim2() {
             await Animate.to(fish2, {
                 x: 30, y: 20,
@@ -334,16 +332,13 @@
         }
         idleSwim2();
 
-        //animate fish3
+        // animate fish3
         async function idleSwim3() {
-            fish3.rotation == 1.5;
             await Animate.to(fish3, {
                 x: 350, y: 0,
                 duration: 3000,
                 easing: Animate.easeInOut
             });
-            await fish3.scale.set(.1);
-            
             await Animate.to(fish3, {
                 x: 350, y: 20,
                 duration: 3000,
@@ -353,6 +348,7 @@
         }
         idleSwim3();
 
+        // animate background school of fish, get larger as pass right
         async function backgroundFish() {
             await Animate.to(school, {
                 x: -1000, y: 55,
@@ -369,7 +365,7 @@
         }
         backgroundFish();
 
-        //animate kelp
+        // animate kelp
         async function sway() {
             await Animate.to(kelp1, {
                 x: 50, y: 0,
@@ -410,7 +406,7 @@
 
 
 
-
+        // player animation idle state
         async function playerIdle() {
             await Animate.to(player, {
                 x: 325,
@@ -429,34 +425,24 @@
         }
         playerIdle()
 
+        // player interaction on click anywhere 
         async function moveTo(e, data) {
-            //player.position.x = e.data.global.x;
-            //player.position.y = e.data.global.y;
             await Animate.to(player, {
-                
                 x: e.data.global.x,
                 y: e.data.global.y,
                 duration: 2000,
                 easing: Animate.easeInOut
-            }); try { } catch (error) { console.log(error) }
+            });
+            // try { } catch (error) { console.log(error) }
+            //throw new Error('ignore');
             await pause(400);
             player.width = 20;
             await pause(100);
             player.width = 45.6;
             moveTo();
-
             playerIdle();
-
         }
         moveTo();
-        //playerIdle();
-
-        function rotation() {
-            player.rotation += .05;
-        }
-
-
-        
 
     </script>
     <p>by Timothy Blajsa</p>
