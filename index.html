@@ -402,7 +402,6 @@
                 duration: 3000,
                 easing: Animate.easeInOut
             })
-            //await pause(2000);
             await Animate.to(player, {
                 x: 325,
                 y: 200,
@@ -413,7 +412,7 @@
         }
         playerIdle();
 
-        // player interaction on click anywhere 
+        // player interaction on click anywhere with tail whip
         async function moveTo(e, data) {
             await Animate.to(player, {
                 x: e.data.global.x,
