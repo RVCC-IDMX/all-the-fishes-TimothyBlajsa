@@ -290,16 +290,37 @@
 
         // make fish1 interactive
         fish1.interactive = true;
-
+        fish1.on('pointerdown', feeding);
         // fish1 interaction function, rotation change
-        fish1.on('pointerdown', e => {
+        // fish1.on('pointerdown', e => {
+        //     fishFood.visible = true;
+        //     fishFood.alpha = 1;
+        //     fish1.pivot.x = 500;
+        //     fish1.pivot.y = 1200;
+        //     fish1.rotation = 1.5;
+
+        //     // feeding animation
+        //     async function feed() {
+        //         await Animate.to(fish1, {
+        //             x: 420, y: -70,
+        //             duration: 2000,
+        //             easing: Animate.easeInOut
+        //         });
+        //         await pause(1000);
+        //         feed();
+        //         idleSwim1();
+        //         fishFood.alpha = 0;
+        //         fish1.rotation = 0;
+        //     };
+        //     feed();
+        // })
+
+        async function feeding() {
             fishFood.visible = true;
             fishFood.alpha = 1;
             fish1.pivot.x = 500;
             fish1.pivot.y = 1200;
             fish1.rotation = 1.5;
-
-            // feeding animation
             async function feed() {
                 await Animate.to(fish1, {
                     x: 420, y: -70,
@@ -313,7 +334,7 @@
                 fish1.rotation = 0;
             };
             feed();
-        })
+        }
 
         // animate fish2, cycle random tint colors
         async function idleSwim2() {
