@@ -264,7 +264,7 @@
         }
 
         // stop animation function
-        Animate.stop = function(obj) {
+        Animate.stop = function (obj) {
             cancelAnimationFrame(obj).animationID;
         }
 
@@ -356,9 +356,9 @@
         // make fish3 interactive
         fish3.interactive = true;
 
-        // on pointerdown make fish3 blow bubble
+        // on pointerdown make fish3 blow bubble, rise to surface and pop
         fish3.on('pointerdown', fishBubble);
-        
+
         // create betta fish bubble
         let bettaBubble = new PIXI.Graphics();
         bettaBubble.beginFill(0xFFFFFF);
@@ -366,24 +366,20 @@
         bettaBubble.alpha = .7;
         app.stage.addChild(bettaBubble);
         bettaBubble.visible = false;
-        
+
         // animate betta fish bubble
-        async function fishBubble(){
+        async function fishBubble() {
             bettaBubble.visible = true;
-            console.log('clicked bubble')
-            await Animate.to(bettaBubble,{
-                x:0,y:-30,duration:2000
+            await Animate.to(bettaBubble, {
+                x: 0, y: -30, duration: 2000
             });
             await pause(1000)
             bettaBubble.visible = false;
-            await Animate.to(bettaBubble,{
-                x:0,y:25,duration:0
+            await Animate.to(bettaBubble, {
+                x: 0, y: 25, duration: 0
             });
-            //fishBubble();
-            
         }
-        //fishBubble();
-        
+
         // animate background school of fish, get larger as pass right
         async function backgroundFish() {
             await Animate.to(school, {
@@ -510,7 +506,7 @@
         <p id="plate_title">Surreal Aquarium</p>
         <p>by Timothy Blajsa</p>
     </div>
-    
+
 </body>
 
 </html>
