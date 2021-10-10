@@ -27,10 +27,12 @@ The fish to the right bobs until clicked in which a food pellet is created and i
 
 The betta fish, when clicked, blows a bubble which rises to the surface and then pops.
 
-## Author Testimony
-This experience, being my first time using PIXIJS, was overall very smooth. Following the tutorial was enough to give me the basic toolset to inspire a full scene. I was able to achieve the resulting scene with what was taught in the tutorial. There were no problems during this process, just general troubleshooting and finetuning individual elements, until I was satisfied with the end product. In addition, I was able to work around certain things, such as a translation movement by adjusting the values of the sine wave, thus giving the appearance of a horizontal movement; to mimic the feel of depth, I adjusted the tints of the image elements; to further update these effects, the previous animations was replaced with the Animation.to functions.
+The addition of a CSS file and its styling further creates the effect of a visual aquarium as the app window spans the width of the screen; in addition a custom name plate is included beneath the app window. 
 
-While the scene is good as is, to make it feel more interactive, the added function discussed above this testimony were added. As an added touch, aquarium audio is looped in the background. 
+## Author Testimony
+This experience, being my first time using PIXIJS, was overall very smooth. Following the tutorial was enough to give me the basic toolset to inspire a full scene. I was able to achieve the resulting scene with what was taught in the tutorial. There were no problems during this process, just general troubleshooting and finetuning individual elements, until I was satisfied with the end product. In addition, I was able to work around certain things, such as a translation movement by adjusting the values of the sine wave, thus giving the appearance of a horizontal movement; to mimic the feel of depth, I adjusted the tints of the image elements; to further update these effects, the previous animations were replaced with the Animation.to functions. This allows better control over individual sprites, their positions, calling functions, and the ability to chain animations to form paths.
+
+While the scene is good as is, to make it feel more interactive, the added functionality discussed above this testimony was added. As an added touch, aquarium audio is looped in the background. 
 
 As far as a strategy goes, my main plan was to use as few lines of code as needed for each specific function, keeping things simple, but also reusable. 
 
