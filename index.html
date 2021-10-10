@@ -26,7 +26,7 @@
         });
 
         // Displacement Map Effect for App
-        
+
 
         // The App
         var app = new PIXI.Application({
@@ -247,18 +247,13 @@
 
         };
 
-        // stop animation function
-        Animate.stop = function (obj) {
-            cancelAnimationFrame(obj.animationID);
-        }
-
-        //ease functions
+        // ease functions
         Animate.linear = x => x;
-
+        // ease in
         Animate.easeIn = x => x * x;
-
+        // ease out
         Animate.easeOut = x => 1 - (1 - x) * (1 - x);
-
+        // ease inout
         Animate.easeInOut = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
 
         // pause animation function
@@ -294,6 +289,8 @@
 
         // make fish1 interactive
         fish1.interactive = true;
+
+        // on pointerdown call feeding function with nested feed function
         fish1.on('pointerdown', feeding);
 
         // fish1 interaction function, rotation change
@@ -416,7 +413,7 @@
         }
         playerIdle();
 
-        // player interaction on click anywhere with tail whip
+        // player interaction on pointerdown anywhere with tail whip
         async function moveTo(e, data) {
             await Animate.to(player, {
                 x: e.data.global.x,
@@ -435,6 +432,15 @@
         }
         moveTo();
 
+        // begin notes
+        /* This marks the portion of the code where the collision detection and
+        displacement map logic will go. In theory, the collision check function will
+        utilize the bounding boxes of each sprite and return true if they have intersected,
+        in the event they have collided, they will interact in some way.
+
+        The displacement map will slightly and continuously shift a filter on the
+        background sprite, creating the illusion of shifting water.
+
         // if (checkCollide(player, fish1)){
         //     console.log("touched");
         // }
@@ -451,7 +457,7 @@
         //     let aBox = a.getBounds();
         //     let bBox = b.getBounds();
 
-        //     return aBox.x + aBox.width > bBox.x && 
+        //     return aBox.x + aBox.width > bBox.x &&
         //         aBox.x < bBox.x + bBox.width &&
         //         aBox.y + aBox.height > bBox.y &&
         //         aBox.y < bBox.y + bBox.height;
@@ -459,7 +465,8 @@
         // checkCollide();
 
         // Displacement Map Effect logic
-            
+        */
+        // end notes 
         //OvO
 
     </script>
