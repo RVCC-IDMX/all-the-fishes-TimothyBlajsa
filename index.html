@@ -354,31 +354,35 @@
         idleSwim3();
 
         // make fish3 interactive
-        
+        fish3.interactive = true;
 
         // on pointerdown make fish3 blow bubble
-        //fish3.on('pointerdown', fishBubble);
-
+        fish3.on('pointerdown', fishBubble);
+        
         // create betta fish bubble
         let bettaBubble = new PIXI.Graphics();
         bettaBubble.beginFill(0xFFFFFF);
         bettaBubble.drawCircle(350, 30, 3, 25);
         bettaBubble.alpha = .7;
         app.stage.addChild(bettaBubble);
-        //bettaBubble.visible = true;
-        // animate betta fish bubble
-        // hide bubble
+        bettaBubble.visible = false;
         
+        // animate betta fish bubble
         async function fishBubble(){
             bettaBubble.visible = true;
-            
+            console.log('clicked bubble')
             await Animate.to(bettaBubble,{
                 x:0,y:-30,duration:2000
             });
-            //await Animate.stop(bettaBubble)
-            fishBubble();
+            await pause(1000)
+            bettaBubble.visible = false;
+            await Animate.to(bettaBubble,{
+                x:0,y:25,duration:0
+            });
+            //fishBubble();
+            
         }
-        fishBubble();
+        //fishBubble();
         
         // animate background school of fish, get larger as pass right
         async function backgroundFish() {
