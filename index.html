@@ -263,6 +263,11 @@
             });
         }
 
+        // stop animation function
+        Animate.stop = function(obj) {
+            cancelAnimationFrame(obj).animationID;
+        }
+
         // idle animations for sprites
         // animate fish1
         async function idleSwim1() {
@@ -348,6 +353,33 @@
         }
         idleSwim3();
 
+        // make fish3 interactive
+        
+
+        // on pointerdown make fish3 blow bubble
+        //fish3.on('pointerdown', fishBubble);
+
+        // create betta fish bubble
+        let bettaBubble = new PIXI.Graphics();
+        bettaBubble.beginFill(0xFFFFFF);
+        bettaBubble.drawCircle(350, 30, 3, 25);
+        bettaBubble.alpha = .7;
+        app.stage.addChild(bettaBubble);
+        //bettaBubble.visible = true;
+        // animate betta fish bubble
+        // hide bubble
+        
+        async function fishBubble(){
+            bettaBubble.visible = true;
+            
+            await Animate.to(bettaBubble,{
+                x:0,y:-30,duration:2000
+            });
+            //await Animate.stop(bettaBubble)
+            fishBubble();
+        }
+        fishBubble();
+        
         // animate background school of fish, get larger as pass right
         async function backgroundFish() {
             await Animate.to(school, {
